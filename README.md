@@ -1,6 +1,6 @@
-# _TITLE_
+# _Adventure Planner_
 
-#### By _**Rosario Ruvalcaba**_
+#### By _**Megan McKissack, Patty Otero, Sana Zahlan, and Rosario Ruvalcaba**_
 
 #### _SHORT DESCRIPTION._
 
