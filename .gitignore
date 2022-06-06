@@ -3,4 +3,5 @@ dist/
 coverage/
 package-lock.json
 .env
+src/contributers.html
 # .DS_Store
