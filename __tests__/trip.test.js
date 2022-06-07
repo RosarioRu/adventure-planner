@@ -1,0 +1,1 @@
+import TemplateClassName from '../src/template.js';
