@@ -66,7 +66,7 @@
         </div>
         <div class="form-group">
           <label for="tripDestination">Where are you going?</label>
-          <input type="text" class="form-control" id="tripName">
+          <input type="text" class="form-control" id="tripDestination">
         </div>
         <div class="form-group">
           <!-- user input participants - maybe textbox entry -->
@@ -80,63 +80,66 @@
           <label for="endDate">End date:</label>
           <input type="date" id="endDate" name="trip-end">
         </div>
-        <button type="submit" class="btn btn-success" id="tripCreate">Create trip!</button>
+        <button class="btn btn-success" id="tripCreate">Create trip!</button>
       </form>
     </div> <!--end of tripFormPage div -->
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="food" id="anchorTripFood">
-      <h1>Food Planning</h1>
-      <h2><span id="foodDay1"></span></h2>
-      <h5>breakfast</h5>
-      <input type="text" list="breakfast" />
-      <datalist id="breakfast">
-        <option>fruit</option>
-        <option>oatmeal packets</option>
-        <option>campfire pancake breakfast</option>
-        <option>find a restaurant</option>
-        <option>no plan</option>
-        <option>skip breakfast</option>
-      </datalist>
-      <h5>morning snack</h5>
-      <input type="text" list="morning-snack" />
-      <datalist id="morning-snack">
-        <option>trailmix</option>
-        <option>granola bars</option>
-        <option>cheese and jerky</option>
-        <option>no plan</option>
-        <option>skip snack</option>
-      </datalist>
-      <h5>lunch</h5>
-      <input type="text" list="lunch" />
-      <datalist id="lunch">
-        <option>dried soup/ramen</option>
-        <option>peanutbutter sandwiches</option>
-        <option>find a restaurant</option>
-        <option>no plan</option>
-        <option>skip lunch</option>
-      </datalist>
-      <h5>afternoon-snack</h5>
-      <input type="text" list="afternoon-snack" />
-      <datalist id="afternoon-snack">
-        <option>trailmix</option>
-        <option>granola bars</option>
-        <option>cheese and jerky</option>
-        <option>no plan</option>
-        <option>skip snack</option>
-      </datalist>
-      <h5>dinner</h5>
-      <input type="text" list="dinner" />
-      <datalist id="dinner">
-        <option>cheese, bread, and jerky</option>
-        <option>dried soup/ramen</option>
-        <option>campfire fish and potatoes</option>
-        <option>find a restaurant</option>
-        <option>no plan</option>
-        <option>skip dinner</option>
-      </datalist>
+      <form id="foodPlanning">
+        <h1>Food Planning</h1>
+        <h2><span id="foodDay1"></span></h2>
+        <h5>breakfast</h5>
+        <input type="text" id="bf" list="breakfast" />
+        <datalist id="breakfast">
+          <option>fruit</option>
+          <option>oatmeal packets</option>
+          <option>campfire pancake breakfast</option>
+          <option>find a restaurant</option>
+          <option>no plan</option>
+          <option>skip breakfast</option>
+        </datalist>
+        <h5>morning snack</h5>
+        <input type="text" id="ms" list="morning-snack" />
+        <datalist id="morning-snack">
+          <option>trailmix</option>
+          <option>granola bars</option>
+          <option>cheese and jerky</option>
+          <option>no plan</option>
+          <option>skip snack</option>
+        </datalist>
+        <h5>lunch</h5>
+        <input type="text" id="lunch" list="lunchData" />
+        <datalist id="lunchData">
+          <option>dried soup/ramen</option>
+          <option>peanutbutter sandwiches</option>
+          <option>find a restaurant</option>
+          <option>no plan</option>
+          <option>skip lunch</option>
+        </datalist>
+        <h5>afternoon-snack</h5>
+        <input type="text" id="as" list="afternoon-snack" />
+        <datalist id="afternoon-snack">
+          <option>trailmix</option>
+          <option>granola bars</option>
+          <option>cheese and jerky</option>
+          <option>no plan</option>
+          <option>skip snack</option>
+        </datalist>
+        <h5>dinner</h5>
+        <input type="text" id="din" list="dinner" />
+        <datalist id="dinner">
+          <option>cheese, bread, and jerky</option>
+          <option>dried soup/ramen</option>
+          <option>campfire fish and potatoes</option>
+          <option>find a restaurant</option>
+          <option>no plan</option>
+          <option>skip dinner</option>
+        </datalist>
+        <button type="submit" class="btn btn-success" id="foodPlanning">Submit food planning</button>
+      </form>
+    
     </div> <!--end of food div -->
-
 
     <div class="safety-gear" id="anchorTripGear">
     </div> <!--end of safety-gear div -->

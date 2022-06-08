@@ -1,8 +1,12 @@
 export class Trip {
-  constructor (tripType, tripPeople, food, gear, navigation, shelter, skills, personalSupplies) {
+  constructor (tripType, tripName, tripPeople, tripDestination, tripStartDate, tripEndDate, food, gear, navigation, shelter, skills, personalSupplies) {
     this.tripType = tripType;
+    this.tripName = tripName;
     this.tripPeople = tripPeople;
-    this.food = food;
+    this.tripDestination = tripDestination;
+    this.tripStartDate = tripStartDate;
+    this.tripEndDate = tripEndDate;
+    this.food = food ? food : {};
     this.gear = gear;
     this.navigation = navigation;
     this.shelter = shelter;
@@ -11,10 +15,8 @@ export class Trip {
   }
 }
 
-export class Food {
-  constructor () {
-    this.day1 = {};
-    this.day2 = {};
-    this.day3 = {};
+export class FoodSchedule {
+  constructor (foodDay1) {
+    this.foodDay1 = foodDay1;
   }
 }
