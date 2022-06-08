@@ -17,6 +17,8 @@ $(document).ready(function() {
     // const tripTypeValue = $('#tripType').val();
     currentUser = new Person(user);
     // window.location.href='tripForm.html';
+    $(".tripPage").show();
+    $(".landingPage").hide();
   });
 
   $('#tripCreate').on("click", function (event) {
