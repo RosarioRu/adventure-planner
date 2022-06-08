@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Adventure Planner</title>
 </head>
+
 <body>
   <div class="container">
-    
-    <div class="navigation-bar"> 
+
+    <div class="navigation-bar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <nav aria-label="breadcrumb">
@@ -36,8 +38,9 @@
           </nav>
         </div>
       </nav>
-    </div> <!--end of navigation div -->
-    
+    </div>
+    <!--end of navigation div -->
+
     <div class="landing-page">
       <h1>Welcome to Adventure Planner!</h1>
       <form id="begin">
@@ -55,10 +58,10 @@
         <button type="submit">Hi</button>
       </form>
     </div> <!-- end of landing-page div -->
-    
-  
+
+
     <div id="tripFormPage">
-    <h1>Create a Trip</h1>
+      <h1>Create a Trip</h1>
       <form id="createTripForm">
         <div class="form-group">
           <label for="tripName">Name your trip:</label>
@@ -82,25 +85,53 @@
         </div>
         <button type="submit" class="btn btn-success" id="tripCreate">Create trip!</button>
       </form>
-    </div> <!--end of tripFormPage div -->
+    </div>
+    <!--end of tripFormPage div -->
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="food" id="anchorTripFood">
-    </div> <!--end of food div -->
+    </div>
+    <!--end of food div -->
     <div class="safety-gear" id="anchorTripGear">
-    </div> <!--end of safety-gear div -->
+    </div>
+    <!--end of safety-gear div -->
     <div class="navigation" id="anchorTripNavigation">
-    </div> <!--end of navigation div -->
+      <div class="setRoute">
+        <h2>Create a Route</h2>
+        <form id="create-route">
+          <!-- can be driving, biking, hiking routes etc. -->
+          <label for="route-start">Enter your starting point</label>
+          <input id="route-start" class="form-control" type="text">
+          <label for="route-start">Enter your ending point</label>
+          <input id="route-start" class="form-control" type="text">
+          <!-- Possibly add inputs for map markers -->
+      </div>
+      </form>
+      <div class="mapView">
+        <div class="mapInfo">
+          <p class="estimted-time"></p>
+          <p class="distance"></p>
+          <p class="elevation"></p>
+        </div>
+      </div>
+    </div>
+    <!--end of navigation div -->
     <div class="shelter-sleeping" id="anchorTripShelter">
-    </div> <!--end of shelter-sleeping div -->
+    </div>
+    <!--end of shelter-sleeping div -->
     <div class="skills" id="anchorTripSkills">
-    </div> <!--end of skills div -->
+    </div>
+    <!--end of skills div -->
     <div class="personal-supplies" id="anchorTripPersonalSupplies">
-    </div> <!--end of personal-supplies div -->
+    </div>
+    <!--end of personal-supplies div -->
 
     <div class="itinerary" id="tripItenerary">
-    </div> <!--end itinerary div -->
+    </div>
+    <!--end itinerary div -->
 
-  </div> <!--end of container div -->
+  </div>
+  <!--end of container div -->
 </body>
+
 </html>
