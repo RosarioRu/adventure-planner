@@ -44,18 +44,18 @@
       <h1>Welcome to Adventure Planner!</h1>
       <form id="begin">
         <div class="form-group">
-          <label for="user">Enter your name:</label>
+          <label for="user" class="user">Enter your name:</label>
           <input type="text" class="form-control" id="user">
         </div>
-        <label for="tripTypeSelect">Adventure type:</label>
-        <select class="form-control" id="tripType">
-          <option value="backpacking">backpacking</option>
-          <option value="bike">bike camping</option>
-          <option value="hike">day hike</option>
-          <option value="kayak">kayak camping</option>
-        </select>
-        <button type="submit">Hi</button>
-      </form>
+        <div class="row">
+          <label for="trip-type"></label>
+          <select class="form-control" id="trip-type" size="5">
+            <option>Backpacking</option>
+            <option>Bike</option>
+            <option>Kayak</option>
+          </select>
+        </div>   
+      </form> 
     </div> <!-- end of landing-page div -->
     
     <div class="tripPage">
