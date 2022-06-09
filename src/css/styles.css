@@ -46,3 +46,13 @@
   font-weight: bold;
   color: whitesmoke;
 }
+/* body {
+  background-color: lightblue;
+} */
+.tripPage {
+  display: none;
+}
+
+.foodPage {
+  display: none;
+}

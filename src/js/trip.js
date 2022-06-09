@@ -1,15 +1,22 @@
-//business logic with class example below:
+export class Trip {
+  constructor (tripType, tripName, tripPeople, tripDestination, tripStartDate, tripEndDate, food, gear, navigation, shelter, skills, personalSupplies) {
+    this.tripType = tripType;
+    this.tripName = tripName;
+    this.tripPeople = tripPeople;
+    this.tripDestination = tripDestination;
+    this.tripStartDate = tripStartDate;
+    this.tripEndDate = tripEndDate;
+    this.food = food ? food : {};
+    this.gear = gear;
+    this.navigation = navigation;
+    this.shelter = shelter;
+    this.skills = skills;
+    this.personalSupplies = personalSupplies;
+  }
+}
 
-export default class TemplateClassName {
-  //example of a constructor function:
-  // constructor (intelligence, charm) {
-  //   this.intelligence = intelligence;
-  //   this.charm = charm;
-  //   this.health = 100;
-  // }
-
-  //example of a method function:
-  // templateExample(number) {
-  //   this.health = (this.health)-number;
-  // }
+export class FoodSchedule {
+  constructor (foodDay1) {
+    this.foodDay1 = foodDay1;
+  }
 }
