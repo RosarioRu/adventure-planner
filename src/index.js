@@ -46,4 +46,11 @@ $(document).ready(function() {
     currentTrip.food = tripFood;
   });
 
+  $('#create-route').on("click", function(event){
+    event.preventDefault();
+    let routeBegin = $('#route-start').val();
+    let routeEnd = $('#route-end').val();
+    console.log(routeBegin);
+    console.log(routeEnd);
+  });
 });
