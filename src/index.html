@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Adventure Planner</title>
 </head>
+
 <body>
   <div class="container">
-    
-    <div class="navigation-bar"> 
+
+    <div class="navigation-bar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <nav aria-label="breadcrumb">
@@ -56,7 +58,6 @@
       </form>
     </div> <!-- end of landing-page div -->
     
-  
     <div class="tripPage">
     <h1>Create a Trip</h1>
       <form id="createTripForm">
@@ -141,20 +142,51 @@
     
     </div> <!--end of food div -->
 
-    <div class="safety-gear" id="anchorTripGear">
-    </div> <!--end of safety-gear div -->
-    <div class="navigation" id="anchorTripNavigation">
-    </div> <!--end of navigation div -->
-    <div class="shelter-sleeping" id="anchorTripShelter">
-    </div> <!--end of shelter-sleeping div -->
-    <div class="skills" id="anchorTripSkills">
-    </div> <!--end of skills div -->
-    <div class="personal-supplies" id="anchorTripPersonalSupplies">
-    </div> <!--end of personal-supplies div -->
+  <div class="safety-gear" id="anchorTripGear">
+  </div>
+  <!--end of safety-gear div -->
+  <div class="navigation" id="anchorTripNavigation">
+    <div class="setRoute">
+      <h2>Create a Route</h2>
+      <form id="create-route">
+        <!-- can be driving, biking, hiking routes etc. -->
+        <div class="form-group">
+          <label for="route-start">Enter your starting point</label>
+          <input id="route-start" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="route-start">Enter your ending point</label>
+          <input id="route-start" class="form-control" type="text">
+        </div>
+        <!-- Possibly add inputs for map markers -->
+        <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
+      </form>
+    </div>
+    <div class="mapView">
+      <div class="mapInfo">
+        <p class="estimted-time"></p>
+        <p class="distance"></p>
+        <p class="elevation"></p>
+      </div>
+    </div>
+  </div>
+  <!--end of navigation div -->
+  <div class="shelter-sleeping" id="anchorTripShelter">
+  </div>
+  <!--end of shelter-sleeping div -->
+  <div class="skills" id="anchorTripSkills">
+  </div>
+  <!--end of skills div -->
+  <div class="personal-supplies" id="anchorTripPersonalSupplies">
+  </div>
+  <!--end of personal-supplies div -->
 
-    <div class="itinerary" id="tripItenerary">
-    </div> <!--end itinerary div -->
+  <div class="itinerary" id="tripItenerary">
+  </div>
+  <!--end itinerary div -->
 
-  </div> <!--end of container div -->
+  </div>
+  <!--end of container div -->
 </body>
+
 </html>
