@@ -2,14 +2,30 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
+//import 'mapbox-gl/dist/mapbox-gl.js';
 import {Trip, FoodSchedule} from './js/trip';
 import Person from './js/person';
 // import TemplateClassName from './js/template.js';
 
+//check in where this should go
+const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+mapboxgl.accessToken = `${process.env.MAPBOX_API_KEY}`;
+const map = new mapboxgl.Map({
+  container: 'mapView',
+  style: 'mapbox://styles/mapbox/outdoors-v11',
+  center: [-122.669, 45.429],
+  zoom: 9
+});
 
 $(document).ready(function() {
   let currentUser;
   let currentTrip;
+
+  // $('#mapView').append(map);
+  // map.resize();
+
+  document.getElementById('mapView').append(map);
+  map.resize();
 
   $('#begin').submit(function (event) {
     event.preventDefault();
@@ -53,4 +69,5 @@ $(document).ready(function() {
     console.log(routeBegin);
     console.log(routeEnd);
   });
+
 });
