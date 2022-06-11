@@ -10,3 +10,10 @@
 .foodPage {
   display: none;
 }
+
+.mapboxgl-canvas {
+  position: relative;
+  width: 980px;
+  height: 500px; 
+}
+
