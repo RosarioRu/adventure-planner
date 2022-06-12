@@ -2,10 +2,28 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {Trip, FoodSchedule} from './js/trip';
+import {Trip, FoodSchedule, TripDates} from './js/trip';
 import Person from './js/person';
 // import TemplateClassName from './js/template.js';
 
+export default function dateDiff(startDate, endDate) {
+  const timeDif =  Math.round((startDate-endDate)/(1000*60*60*24));
+  const absTimeDif = Math.abs(timeDif);
+  return absTimeDif;
+}
+
+function createTripDates(startDate, endDate){
+  let tripDates = new TripDates(startDate, endDate);
+  tripDates.calcDateDiff();
+  tripDates.populateDatesListed();
+  return tripDates;
+}
+
+function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tripDestination) {
+  const currentTripDates = createTripDates(startDate, endDate);
+  const currentTrip = new Trip(tripType, tripName, tripParticipants, tripDestination, currentTripDates);
+  return currentTrip;
+}
 
 $(document).ready(function() {
   let currentUser;
@@ -28,10 +46,12 @@ $(document).ready(function() {
     const tripParticipants = $('#tripParticipants').val();
     const tripStartDate = $('#startDate').val();
     const tripEndDate = $('#endDate').val();
-    currentTrip = new Trip("backpacking", tripName, tripParticipants, tripDestination, tripStartDate, tripEndDate);
+    const tripType = "backpacking";
+
+    const currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
-    console.log(tripStartDate);
-    console.log(tripEndDate);
+
+    console.log(currentTrip);
   });
 
   $('#foodPlanning').on("click", function(event) {
