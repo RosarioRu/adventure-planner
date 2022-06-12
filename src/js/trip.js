@@ -27,13 +27,28 @@ export class TripDates {
     this.startDate = startDate;
     this.endDate = endDate;
     this.numberOfDays;
-    this.daysListed = [];
+    this.numberOfNights;
+    this.datesListed = [];
   }
 
   calcDateDiff() {
     const date1 = new Date(this.startDate);
     const date2 = new Date(this.endDate);
-    const daysOfTrip = dateDiff(date1, date2);
-    this.numberOfDays = daysOfTrip;
+    const diffBetweenDates = dateDiff(date1, date2);
+    this.numberOfDays = diffBetweenDates + 1;
+    this.numberOfNights = diffBetweenDates;
+  }
+
+  populateDatesListed() {
+    const date1 = new Date(this.startDate);
+    this.datesListed = []; 
+    // I'm not sure why but I need to start i = 1 for this function's loop to populate the dates correctly. Even though it seems i=0 should work..
+    for(let i = 1; i < this.numberOfDays + 1; i++) {
+      let nextDate = new Date();
+      let dateStr;
+      nextDate.setDate(date1.getDate() + i);
+      dateStr = nextDate.toDateString();
+      this.datesListed.push(dateStr);
+    }
   }
 }

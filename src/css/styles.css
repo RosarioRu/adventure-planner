@@ -1,4 +1,4 @@
-.landing-page {
+.landingPage {
   border: solid 2px black;
   box-sizing: border-box;
   width: 100%;
@@ -9,7 +9,7 @@
   background-image:url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80");
 }
 
-.landing-page .user {
+.landingPage .user {
   box-sizing: border-box;
   width: 100%;
   margin-top: 5%;
@@ -17,16 +17,16 @@
   font-size: larger;
 }
 
-.landing-page h1 {
+.landingPage h1 {
   text-align: center;
 }
 
-.landing-page .row {
+.landingPage .row {
   display: flex;
   align-items: center;
 }
 
-.landing-page select {
+.landingPage select {
   display: table-row;
   border: none;
   overflow: hidden;
@@ -39,7 +39,7 @@
   margin-top: 3%;
 }
 
-.landing-page select option {
+.landingPage select option {
   display: table-cell;
   box-sizing: border-box;
   padding: 3px 60px 3px 60px;

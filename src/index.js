@@ -35,6 +35,7 @@ $(document).ready(function() {
     const tripEndDate = $('#endDate').val();
     let currentTripDates = new TripDates(tripStartDate, tripEndDate);
     currentTripDates.calcDateDiff();
+    currentTripDates.populateDatesListed();
     currentTrip = new Trip("backpacking", tripName, tripParticipants, tripDestination, currentTripDates);
     currentUser["trips"].push(currentTrip);
     console.log(currentUser);
