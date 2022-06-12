@@ -61,10 +61,9 @@ $(document).ready(function() {
     const tripStartDate = $('#startDate').val();
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
-    //three constants below update/create variables to be used in function called addRows();
-    arrayOfTripDays = currentTrip.tripDates.datesListed;
-    const daysNeeded = arrayOfTripDays.length;
-    const rowsNeeded = Math.ceil((arrayOfTripDays.length)/3);
+  
+   
+    
 
     
     let currentTrip = createTrip (tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
@@ -72,6 +71,9 @@ $(document).ready(function() {
     console.log(currentTrip);
     
     //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
+    arrayOfTripDays = currentTrip.tripDates.datesListed;
+    const daysNeeded = arrayOfTripDays.length;
+    const rowsNeeded = Math.ceil((arrayOfTripDays.length)/3);
     $(".tripPage").hide();
     $(".landingPage").hide();
     $(".navigation").hide();
