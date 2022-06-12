@@ -48,7 +48,7 @@ $(document).ready(function() {
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
 
-    const currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
+    currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
 
     console.log(currentTrip);
@@ -74,7 +74,6 @@ $(document).ready(function() {
       gearArray.push(gearItems);
     });
     currentTrip.gear = gearArray;
-    console.log(currentTrip.gear);
   });
 
 });
