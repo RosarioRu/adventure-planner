@@ -71,3 +71,10 @@
   display: none;
 }
 
+.centered-title {
+  text-align: center;
+}
+
+.centered-paragraph {
+  text-align: center;
+}
