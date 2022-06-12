@@ -12,6 +12,19 @@ export default function dateDiff(startDate, endDate) {
   return absTimeDif;
 }
 
+function createTripDates(startDate, endDate){
+  let tripDates = new TripDates(startDate, endDate);
+  tripDates.calcDateDiff();
+  tripDates.populateDatesListed();
+  return tripDates;
+}
+
+function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tripDestination) {
+  const currentTripDates = createTripDates(startDate, endDate);
+  const currentTrip = new Trip(tripType, tripName, tripParticipants, tripDestination, currentTripDates);
+  return currentTrip;
+}
+
 $(document).ready(function() {
   let currentUser;
   let currentTrip;
@@ -33,12 +46,11 @@ $(document).ready(function() {
     const tripParticipants = $('#tripParticipants').val();
     const tripStartDate = $('#startDate').val();
     const tripEndDate = $('#endDate').val();
-    let currentTripDates = new TripDates(tripStartDate, tripEndDate);
-    currentTripDates.calcDateDiff();
-    currentTripDates.populateDatesListed();
-    currentTrip = new Trip("backpacking", tripName, tripParticipants, tripDestination, currentTripDates);
+    const tripType = "backpacking";
+
+    const currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
-    console.log(currentUser);
+
     console.log(currentTrip);
   });
 
