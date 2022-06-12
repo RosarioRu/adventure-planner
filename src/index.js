@@ -46,4 +46,8 @@ $(document).ready(function() {
     currentTrip.food = tripFood;
   });
 
+  $('#addItemForm').submit(function (event) {
+    event.preventDefault();
+  });
+
 });

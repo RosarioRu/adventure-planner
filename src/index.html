@@ -181,30 +181,63 @@
   </div>
   <!--end of personal-supplies div -->
 
-    <div class="safety-gear" id="anchorTripGear">
-      <h3>Here's a list of (recommended) gear to have for your backpacking trip:</h3>
-      <h4 class="centered-title">Backpack</h4>
-      <p class="centered-paragraph">It's not a backpacking trip without a backpack! You will need a sturdy one since you'll be carrying all your belongings in it for lengthy amounts of time</p>
-      <h4 class="centered-title">Hiking Shoes or Boots</h4>
-      <p class="centered-paragraph">Since most of your trip is going to be spent walking and hiking, reliable and comfortable shoes are essential to your adventure. We recomment getting both shoes and boots so you are able to adapt to weather conditions wherever you are.<p>
-      <h4 class="centered-title">Tent & Sleeping Bag</h4>
-      <p class="centered-paragraph">You'll need those for the countless camping stops you're probably going to make!</p>
-      <h4 class="centered-title">First Aid Kit</h4>
-      <p class="centered-paragraph">You're going to be travelling long distances on foot while carrying your belongings & camping occasionally. It's a good idea to have a first aid kit on you at all times</p>
-      <h4 class="centered-title">Travel Stove and Cutlery</h4>
-      <p class="centered-paragraph">For all the time you might be spending in the woods, you will need a travel stove top and assorted cutlery so you can cook your food. Food planning is in the "Food" section of this webpage. Make sure not to get a stove top that's too heavy since you'll be carrying it with you everywhere.</p>
-
-      <form id="userForm">
-        <div class="form-group">
-          <label for="userInput"> If we missed something, you can add it here:</label>
-          <input id="item" class="form-control" type="text">
-        </div>
-        <button type="submit" class="btn btn-secondary">Add Item</button>
-      </form>
-
+  <div class="safety-gear" id="anchorTripGear">
+    <form id="addItems">
+      <h4>Choose which of the following you'd like to include in your gear</h4>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="backpack" value="Backpack">
+          Backpack
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="hikingShoes" value="Hiking Shoes">
+          Hiking Shoes
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="hikingBoots" value="Hiking Boots">
+          Hiking Boots
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="tent" value="Tent">
+          Tent
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="sleepingBag" value="Sleeping Bag">
+          Sleeping Bag
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="firstAidKit" value="First Aid Kit">
+          First Aid Kit
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="stoveTop" value="Travel Stove Top">
+          Travel Stove Top 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Phone" value="Phone w/ Charger">
+          Phone with Charger
+        </label>
+      </div>
+      <button type="submit" class="btn btn-success">Add my Items</button>
+    </form>
+    
       <p>If you need help getting started on your shopping, <a href="https://www.rei.com/">REI</a> is always a good start. We also reccomend <a href="https://www.backcountrygear.com/">BackCountry Gear.</a></p>
 
-    </div> <!--end of safety-gear div -->
+  </div> <!--end of safety-gear div -->
     <div class="navigation" id="anchorTripNavigation">
     </div> <!--end of navigation div -->
     <div class="shelter-sleeping" id="anchorTripShelter">
