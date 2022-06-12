@@ -62,10 +62,6 @@ $(document).ready(function() {
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
   
-   
-    
-
-    
     let currentTrip = createTrip (tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
     console.log(currentTrip);
