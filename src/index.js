@@ -25,9 +25,23 @@ function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tr
   return currentTrip;
 }
 
+//the function below builds the itinerary on the DOM -- it will create as many "cards" as there are days where we can display the plan for that day//
+function addRows (totalRows, totalDays) {
+  let dayCount=1;
+  for (let rows=1; rows<=totalRows; rows++) {
+    $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
+    for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
+      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text'>Content of day's itinerary</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div></div>");
+      dayCount=dayCount+1;
+    }
+  }
+}
+
 $(document).ready(function() {
   let currentUser;
   let currentTrip;
+  let arrayOfTripDays;
+  
 
   $('#begin').submit(function (event) {
     event.preventDefault();
@@ -47,11 +61,23 @@ $(document).ready(function() {
     const tripStartDate = $('#startDate').val();
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
+    //three constants below update/create variables to be used in function called addRows();
+    arrayOfTripDays = currentTrip.tripDates.datesListed;
+    const daysNeeded = arrayOfTripDays.length;
+    const rowsNeeded = Math.ceil((arrayOfTripDays.length)/3);
 
-    const currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
+    
+    let currentTrip = createTrip (tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
-
     console.log(currentTrip);
+    
+    //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").show();
+    addRows(rowsNeeded, daysNeeded);
+
   });
 
   $('#foodPlanning').on("click", function(event) {
