@@ -46,8 +46,15 @@ $(document).ready(function() {
     currentTrip.food = tripFood;
   });
 
-  $('#addItemForm').submit(function (event) {
+  $('#addItems').submit(function (event) {
     event.preventDefault();
+    let gearArray =[];
+    $("input[type=checkbox][name=gearItem]:checked").each(function () { 
+      const gearItems = $(this).val();
+      gearArray.push(gearItems);
+    });
+    currentTrip.gear = gearArray;
+    console.log(currentTrip.gear);
   });
 
 });
