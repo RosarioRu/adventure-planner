@@ -4,3 +4,10 @@
   background-color: lightblue;
 } */
 
+.centered-title {
+  text-align: center;
+}
+
+.centered-paragraph {
+  text-align: center;
+}
