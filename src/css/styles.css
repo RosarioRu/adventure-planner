@@ -1,8 +1,75 @@
-/*styling goes here, example for body background color: */
 
+
+.landingPage {
+  border: solid 2px black;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 5%;
+  background-image: linear-gradient(#c7e4ef, #c2d1d6);
+  background-image:url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80");
+}
+
+.landingPage .user {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  font-size: larger;
+}
+
+.landingPage h1 {
+  text-align: center;
+}
+
+.landingPage .row {
+  display: flex;
+  align-items: center;
+}
+
+.landingPage select {
+  display: table-row;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  -webkit-appearance: none;
+  table-layout: unset;
+  height: 45px;
+  padding-left: 21%;
+  background-color: rgba(192, 187, 187, 0.1);
+  margin-top: 3%;
+}
+
+.landingPage select option {
+  display: table-cell;
+  box-sizing: border-box;
+  padding: 3px 76px 3px 76px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.leaveLandingPage {
+  width: 15%;
+  background-color: rgba(192, 187, 187, 0.0);
+  border: none;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 4%;
+
+}
 /* body {
   background-color: lightblue;
 } */
+.tripPage {
+  display: none;
+}
+
+.foodPage {
+  display: none;
+}
 
 .centered-title {
   text-align: center;
