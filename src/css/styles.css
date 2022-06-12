@@ -36,7 +36,7 @@
   -webkit-appearance: none;
   table-layout: unset;
   height: 45px;
-  padding-left: 30%;
+  padding-left: 21%;
   background-color: rgba(192, 187, 187, 0.1);
   margin-top: 3%;
 }
@@ -44,9 +44,21 @@
 .landingPage select option {
   display: table-cell;
   box-sizing: border-box;
-  padding: 3px 60px 3px 60px;
+  padding: 3px 76px 3px 76px;
   font-weight: bold;
   color: whitesmoke;
+}
+
+.leaveLandingPage {
+  width: 15%;
+  background-color: rgba(192, 187, 187, 0.0);
+  border: none;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 4%;
+
 }
 /* body {
   background-color: lightblue;
@@ -58,3 +70,4 @@
 .foodPage {
   display: none;
 }
+
