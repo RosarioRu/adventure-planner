@@ -25,7 +25,32 @@ function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tr
   return currentTrip;
 }
 
-$(document).ready(function() {
+// function populateDropdownDates(tripObject){
+//   const dates = tripObject.tripDates.datesListed;
+//   $('#select').empty();
+//   dates.forEach(function(x) {
+//     console.log(x);
+//     $('#foodScheduleDates').append($('<option></option>').val(x).html(x));
+//   });
+// }
+function dropdownClickHandler(event) {
+  event.preventDefault();
+  console.log(event.target.attributes.val.value);
+  console.log(event);
+  // console.log(event.currentTarget.attributes.val);
+  console.log("hello");
+}
+
+function populateDropdownDates2(tripObject){
+  const dates = tripObject.tripDates.datesListed;
+  $('.a').empty();
+  for (let i = 0; i < dates.length; i++) {
+    $('#foodDatesList').append($('<a class="dropdown-item dropdownFoodDates" href="#"></a>').html(dates[i]).attr('val', i));
+  }
+  $('.dropdownFoodDates').on("click", dropdownClickHandler);
+}
+
+$(function() {
   let currentUser;
   let currentTrip;
 
@@ -39,7 +64,7 @@ $(document).ready(function() {
     $(".landingPage").hide();
   });
 
-  $('#tripCreate').on("click", function (event) {
+  $('#tripCreate').on("click", function(event) {
     event.preventDefault();
     const tripName = $('#tripName').val();
     const tripDestination = $('#tripDestination').val();
@@ -48,12 +73,19 @@ $(document).ready(function() {
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
 
-    const currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
+    currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
 
     console.log(currentTrip);
+    $(".tripPage").hide();
+    $(".foodPage").show();
+
+    // populateDropdownDates(currentTrip);
+    populateDropdownDates2(currentTrip);
   });
 
+  $('.dropdown-item').on("click", dropdownClickHandler);
+  
   $('#foodPlanning').on("click", function(event) {
     event.preventDefault();
     let bf = $('#bf').val();
@@ -64,6 +96,7 @@ $(document).ready(function() {
     let foodDay1 = {"breakfast" : bf, "morning_snack" : ms, "lunch" :  lunch, "afternoon_snack" : as, "dinner" : din};
     let tripFood = new FoodSchedule(foodDay1);
     currentTrip.food = tripFood;
+    console.log(currentTrip);
   });
 
 });

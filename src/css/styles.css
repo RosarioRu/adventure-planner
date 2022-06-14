@@ -67,7 +67,10 @@
   display: none;
 }
 
-.foodPage {
+/* .foodPage {
+  display: none;
+} */
+
+.navigation {
   display: none;
 }
-
