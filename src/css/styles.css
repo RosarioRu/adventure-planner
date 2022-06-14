@@ -67,10 +67,19 @@
   display: none;
 }
 
-/* test */
+/* test below on cards for itineray*/
 #tripItinerary .card {
-  background-color: lightblue;
+  background-color: rgb(50, 157, 193);
 }
+
+#day1 {
+  background-color: white;
+}
+
+#day5 {
+  background-color: green;
+}
+
 
 .foodPage {
   display: none;
