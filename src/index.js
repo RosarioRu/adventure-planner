@@ -31,7 +31,7 @@ function parseDateIndex(activeId) {
   return dateIndex;
 }
 
-function listClickHandler() {
+function foodListClickHandler() {
   $(this).addClass('active').siblings().removeClass('active');
   $(':input','#foodPlanning').val('');
 }
@@ -41,12 +41,12 @@ function populateFoodDatesList(tripObject){
 
   for (let j = 0; j < dates.length; j++){
     if(j === 0){
-      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start active><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start active"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
     } else {
-      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
     }
   }
-  $('.list-group-item').on("click", listClickHandler);
+  $('.list-group-item').on("click", foodListClickHandler);
 }
 
 function updateFoodDatesList(tripObject, activeDateId){
@@ -54,7 +54,6 @@ function updateFoodDatesList(tripObject, activeDateId){
   let foodArr = Object.values(tripObject.food[dateIndex]);
   $('#' + activeDateId + ' p').html("");
   for(let i=0; i<foodArr.length; i++) {
-    console.log(foodArr[i]);
     if (foodArr[i] !== ""){
       $('#' + activeDateId + ' p').append("<li>" + foodArr[i] + "</li>");
     }
@@ -134,7 +133,6 @@ $(function() {
     let activeFoodDateId = $('.list-group').find('a.active').attr("id");
     let foodDateIndex = parseDateIndex(activeFoodDateId);
     currentTrip.food[foodDateIndex] = {"breakfast" : breakfast, "morning_snack" : morningSnack, "lunch" :  lunch, "afternoon_snack" : afternoonSnack, "dinner" : dinner};
-    console.log(currentTrip);
     updateFoodDatesList(currentTrip, activeFoodDateId);
   });
 

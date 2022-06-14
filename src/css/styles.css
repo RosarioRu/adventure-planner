@@ -67,9 +67,9 @@
   display: none;
 }
 
-/* .foodPage {
+.foodPage {
   display: none;
-} */
+}
 
 .navigation {
   display: none;
@@ -87,4 +87,5 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  padding: 15px;
 }
