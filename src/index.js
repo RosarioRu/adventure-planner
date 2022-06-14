@@ -110,7 +110,9 @@ $(document).ready(function() {
       personalGearList.push(itemsSelected);
     });
     currentTrip.personalSupplies = personalGearList;
-    $("#tripItinerary .card").append("hi");
+    
+    $("#tripItinerary .card p").append("<button type='button' class='btn btn-link' id='displayPersonalGearList'>Personal Gear List</button>");
+    // $("#displayPersonalGearList").on("click", ;
 
   });
 
