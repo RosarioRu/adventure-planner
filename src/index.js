@@ -62,7 +62,7 @@ $(document).ready(function() {
     const tripEndDate = $('#endDate').val();
     const tripType = "backpacking";
   
-    let currentTrip = createTrip (tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
+    currentTrip = createTrip (tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
     console.log(currentTrip);
     
@@ -98,6 +98,19 @@ $(document).ready(function() {
       gearArray.push(gearItems);
     });
     currentTrip.gear = gearArray;
+  });
+
+  $("#personalForm").submit(function(event) {
+    event.preventDefault();
+    let personalGearList = [];
+    $("input[type='checkbox'][name=personal]:checked").each(function() {
+      const itemsSelected = $(this).val();
+      console.log(itemsSelected);
+      personalGearList.push(itemsSelected);
+    });
+    console.log(personalGearList);
+    console.log(currentTrip);
+    currentTrip.personalSupplies = personalGearList;
   });
 
 });
