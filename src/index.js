@@ -60,6 +60,18 @@ function updateFoodDatesList(tripObject, activeDateId){
   }
 }
 
+//the function below builds the itinerary on the DOM -- it will create as many "cards" as there are days where we can display the plan for that day//
+function addRows (totalRows, totalDays) {
+  let dayCount=1;
+  for (let rows=1; rows<=totalRows; rows++) {
+    $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
+    for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
+      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text'>Content of day's itinerary</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div></div>");
+      dayCount=dayCount+1;
+    }
+  }
+}
+
 function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
   let dateIndex = parseDateIndex(activeFoodDateId);
@@ -86,9 +98,11 @@ function fillFoodPlannerForm(tripObject){
 }
 
 /*DOCUMENT READY JQUERY UI STARTS HERE */
-$(function() {
+$(document).ready(function() {
   let currentUser;
   let currentTrip;
+  let arrayOfTripDays;
+  
 
   /*LANDING PAGE SUBMIT BUTTON*/
   $('#begin').submit(function (event) {
@@ -113,10 +127,19 @@ $(function() {
 
     currentTrip = createTrip(tripStartDate, tripEndDate, tripType, tripName, tripParticipants, tripDestination);
     currentUser["trips"].push(currentTrip);
-
     console.log(currentTrip);
     $(".tripPage").hide();
     $(".foodPage").show();
+    
+    //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
+    arrayOfTripDays = currentTrip.tripDates.datesListed;
+    const daysNeeded = arrayOfTripDays.length;
+    const rowsNeeded = Math.ceil((arrayOfTripDays.length)/3);
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").show();
+    addRows(rowsNeeded, daysNeeded);
 
     populateFoodDatesList(currentTrip);
   });
@@ -136,8 +159,17 @@ $(function() {
     updateFoodDatesList(currentTrip, activeFoodDateId);
   });
 
-  /*FOOD PAGE LIST GROUP CLICK*/
+  /*FOOD PAGE LIST-GROUP CLICK LISTENER*/
   $('.list-group').on("click", function(){
     fillFoodPlannerForm(currentTrip);
+  });
+  $('#addItems').submit(function (event) {
+    event.preventDefault();
+    let gearArray =[];
+    $("input[type=checkbox][name=gearItem]:checked").each(function () { 
+      const gearItems = $(this).val();
+      gearArray.push(gearItems);
+    });
+    currentTrip.gear = gearArray;
   });
 });

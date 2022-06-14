@@ -75,6 +75,10 @@
   display: none;
 }
 
+.safety-gear{
+  display: none;
+}
+
 .row-food {
   display: flex;
   flex-direction: row;
@@ -88,4 +92,12 @@
   flex-basis: 100%;
   flex: 1;
   padding: 15px;
+}
+
+.centered-title {
+  text-align: center;
+}
+
+.centered-paragraph {
+  text-align: center;
 }
