@@ -41,7 +41,6 @@
     </div> <!--end of navigation div -->
     
     <div class="landingPage">
-
       <!-- <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown button
@@ -101,39 +100,23 @@
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="foodPage" id="anchorTripFood">
-    
-      <!-- <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <button id="" class="dropdown-item" href="#">Action</button>
-          <button class="dropdown-item" href="#">Another action</button>
-          <button class="dropdown-item" href="#">Something else here</button>
-        </div>
-      </div> -->
+  
       <h1>Food Planning</h1>
       <div class='row-food'>
         <div class='column-food'>
           <div class='display-column'>
             <div class="list-group">
+              <a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">MON Jun 6 2022</h5></div><p class="mb-1"><li>oatmeal</li><li>cheese</li></p></a>
             </div>
           </div>
         </div>
         <div class='column-food'>
           <div class='edit-column'>
-            <div class="dropdown">
-              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dates
-              </button>
-              <div id="foodDatesList" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              </div>
-            </div>
       
             <form id="foodPlanning">
               <h2><span id="foodDay1"></span></h2>
               <h5>breakfast</h5>
-              <input type="text" id="bf" list="breakfast" />
+              <input type="text" id="breakfastInput" list="breakfast" />
               <datalist id="breakfast">
                 <option>fruit</option>
                 <option>oatmeal packets</option>
@@ -143,7 +126,7 @@
                 <option>skip breakfast</option>
               </datalist>
               <h5>morning snack</h5>
-              <input type="text" id="ms" list="morning-snack" />
+              <input type="text" id="morningSnackInput" list="morning-snack" />
               <datalist id="morning-snack">
                 <option>trailmix</option>
                 <option>granola bars</option>
@@ -152,7 +135,7 @@
                 <option>skip snack</option>
               </datalist>
               <h5>lunch</h5>
-              <input type="text" id="lunch" list="lunchData" />
+              <input type="text" id="lunchInput" list="lunchData" />
               <datalist id="lunchData">
                 <option>dried soup/ramen</option>
                 <option>peanutbutter sandwiches</option>
@@ -161,7 +144,7 @@
                 <option>skip lunch</option>
               </datalist>
               <h5>afternoon-snack</h5>
-              <input type="text" id="as" list="afternoon-snack" />
+              <input type="text" id="afternoonSnackInput" list="afternoon-snack" />
               <datalist id="afternoon-snack">
                 <option>trailmix</option>
                 <option>granola bars</option>
@@ -170,7 +153,7 @@
                 <option>skip snack</option>
               </datalist>
               <h5>dinner</h5>
-              <input type="text" id="din" list="dinner" />
+              <input type="text" id="dinnerInput" list="dinner" />
               <datalist id="dinner">
                 <option>cheese, bread, and jerky</option>
                 <option>dried soup/ramen</option>

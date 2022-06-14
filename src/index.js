@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {Trip, FoodSchedule, TripDates} from './js/trip';
+import {Trip, TripDates} from './js/trip';
 import Person from './js/person';
 // import TemplateClassName from './js/template.js';
 
@@ -25,56 +25,73 @@ function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tr
   return currentTrip;
 }
 
-// function populateDropdownDates(tripObject){
-//   const dates = tripObject.tripDates.datesListed;
-//   $('#select').empty();
-//   dates.forEach(function(x) {
-//     console.log(x);
-//     $('#foodScheduleDates').append($('<option></option>').val(x).html(x));
-//   });
-// }
-function dropdownClickHandler(event) {
-  console.log(event.target.attributes.val.value);
-  console.log("hello");
+function parseDateIndex(activeId) {
+  const dateIndexStr = activeId.replace("foodDate", "");
+  const dateIndex = parseInt(dateIndexStr);
+  return dateIndex;
 }
 
-function listClickHandler(event) {
-  console.log("listHello");
-  console.log(event);
-  console.log(event.currentTarget.attributes.id.value);
-  // let thisId = (event.currentTarget.attributes.id.value);
+function listClickHandler() {
   $(this).addClass('active').siblings().removeClass('active');
+  $(':input','#foodPlanning').val('');
 }
-
 
 function populateFoodDatesList(tripObject){
   const dates = tripObject.tripDates.datesListed;
 
   for (let j = 0; j < dates.length; j++){
     if(j === 0){
-      $('.list-group').append($('<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start active><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
     } else {
-      $('.list-group').append($('<a href="#" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+      $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
     }
   }
   $('.list-group-item').on("click", listClickHandler);
 }
 
-function populateDropdownDates2(tripObject){
-  const dates = tripObject.tripDates.datesListed;
-  $('.a').empty();
-  for (let i = 0; i < dates.length; i++) {
-    $('#foodDatesList').append($('<a class="dropdown-item dropdownFoodDates" href="#"></a>').html(dates[i]).attr('val', i));
+function updateFoodDatesList(tripObject, activeDateId){
+  let dateIndex = parseDateIndex(activeDateId);
+  let foodArr = Object.values(tripObject.food[dateIndex]);
+  $('#' + activeDateId + ' p').html("");
+  for(let i=0; i<foodArr.length; i++) {
+    console.log(foodArr[i]);
+    if (foodArr[i] !== ""){
+      $('#' + activeDateId + ' p').append("<li>" + foodArr[i] + "</li>");
+    }
   }
-  $('.dropdownFoodDates').on("click", dropdownClickHandler);
-
-
 }
 
+function fillFoodPlannerForm(tripObject){
+  let activeFoodDateId = $('.list-group').find('a.active').attr("id");
+  let dateIndex = parseDateIndex(activeFoodDateId);
+  if (tripObject.food[dateIndex] !== undefined) {
+    let foodObject = tripObject.food[dateIndex];
+    let foodObjectKeys = Object.keys(foodObject);
+
+    const foodKeyAndInputMap = {
+      "breakfast" : "breakfastInput",
+      "morning_snack" : "morningSnackInput",
+      "lunch" : "lunchInput",
+      "afternoon_snack" : "afternoonSnackInput",
+      "dinner" : "dinnerInput"
+    };
+    for (let i = 0; i < foodObjectKeys.length; i++) {
+      let foodObjectKey = foodObjectKeys[i];
+      if (foodObject[foodObjectKey] !== "") {
+        let formInputId = foodKeyAndInputMap[foodObjectKey];
+        let foodObjectValue = foodObject[foodObjectKey];
+        $('#' + formInputId).val(foodObjectValue);
+      }
+    } 
+  }
+}
+
+/*DOCUMENT READY JQUERY UI STARTS HERE */
 $(function() {
   let currentUser;
   let currentTrip;
 
+  /*LANDING PAGE SUBMIT BUTTON*/
   $('#begin').submit(function (event) {
     event.preventDefault();
     const user = $('#user').val();
@@ -85,6 +102,7 @@ $(function() {
     $(".landingPage").hide();
   });
 
+  /*TRIP CREATE SUBMIT BUTTON*/
   $('#tripCreate').on("click", function(event) {
     event.preventDefault();
     const tripName = $('#tripName').val();
@@ -101,24 +119,27 @@ $(function() {
     $(".tripPage").hide();
     $(".foodPage").show();
 
-    // populateDropdownDates(currentTrip);
-    populateDropdownDates2(currentTrip);
     populateFoodDatesList(currentTrip);
   });
-
-  $('.dropdown-item').on("click", dropdownClickHandler);
   
-  $('#foodPlanning').on("click", function(event) {
+  /*FOOD PLANNING SUBMIT BUTTON */
+  $('#foodPlanning').on("submit", function(event) {
     event.preventDefault();
-    let bf = $('#bf').val();
-    let ms = $('#ms').val();
-    let lunch = $('#lunch').val();
-    let as = $('#as').val();
-    let din = $('#din').val();
-    let foodDay1 = {"breakfast" : bf, "morning_snack" : ms, "lunch" :  lunch, "afternoon_snack" : as, "dinner" : din};
-    let tripFood = new FoodSchedule(foodDay1);
-    currentTrip.food = tripFood;
+
+    let breakfast = $('#breakfastInput').val();
+    let morningSnack = $('#morningSnackInput').val();
+    let lunch = $('#lunchInput').val();
+    let afternoonSnack = $('#afternoonSnackInput').val();
+    let dinner = $('#dinnerInput').val();
+    let activeFoodDateId = $('.list-group').find('a.active').attr("id");
+    let foodDateIndex = parseDateIndex(activeFoodDateId);
+    currentTrip.food[foodDateIndex] = {"breakfast" : breakfast, "morning_snack" : morningSnack, "lunch" :  lunch, "afternoon_snack" : afternoonSnack, "dinner" : dinner};
     console.log(currentTrip);
+    updateFoodDatesList(currentTrip, activeFoodDateId);
   });
 
+  /*FOOD PAGE LIST GROUP CLICK*/
+  $('.list-group').on("click", function(){
+    fillFoodPlannerForm(currentTrip);
+  });
 });
