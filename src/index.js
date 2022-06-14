@@ -34,11 +34,30 @@ function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tr
 //   });
 // }
 function dropdownClickHandler(event) {
-  event.preventDefault();
   console.log(event.target.attributes.val.value);
-  console.log(event);
-  // console.log(event.currentTarget.attributes.val);
   console.log("hello");
+}
+
+function listClickHandler(event) {
+  console.log("listHello");
+  console.log(event);
+  console.log(event.currentTarget.attributes.id.value);
+  // let thisId = (event.currentTarget.attributes.id.value);
+  $(this).addClass('active').siblings().removeClass('active');
+}
+
+
+function populateFoodDatesList(tripObject){
+  const dates = tripObject.tripDates.datesListed;
+
+  for (let j = 0; j < dates.length; j++){
+    if(j === 0){
+      $('.list-group').append($('<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+    } else {
+      $('.list-group').append($('<a href="#" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1">' + "TEXT" + '</p></a>').attr('id', "foodDate" + j));
+    }
+  }
+  $('.list-group-item').on("click", listClickHandler);
 }
 
 function populateDropdownDates2(tripObject){
@@ -48,6 +67,8 @@ function populateDropdownDates2(tripObject){
     $('#foodDatesList').append($('<a class="dropdown-item dropdownFoodDates" href="#"></a>').html(dates[i]).attr('val', i));
   }
   $('.dropdownFoodDates').on("click", dropdownClickHandler);
+
+
 }
 
 $(function() {
@@ -82,6 +103,7 @@ $(function() {
 
     // populateDropdownDates(currentTrip);
     populateDropdownDates2(currentTrip);
+    populateFoodDatesList(currentTrip);
   });
 
   $('.dropdown-item').on("click", dropdownClickHandler);

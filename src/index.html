@@ -101,7 +101,7 @@
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="foodPage" id="anchorTripFood">
-
+    
       <!-- <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown button
@@ -112,67 +112,79 @@
           <button class="dropdown-item" href="#">Something else here</button>
         </div>
       </div> -->
-
-      <div class="dropdown">
-        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Dates
-        </button>
-        <div id="foodDatesList" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <h1>Food Planning</h1>
+      <div class='row-food'>
+        <div class='column-food'>
+          <div class='display-column'>
+            <div class="list-group">
+            </div>
+          </div>
+        </div>
+        <div class='column-food'>
+          <div class='edit-column'>
+            <div class="dropdown">
+              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Dates
+              </button>
+              <div id="foodDatesList" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              </div>
+            </div>
+      
+            <form id="foodPlanning">
+              <h2><span id="foodDay1"></span></h2>
+              <h5>breakfast</h5>
+              <input type="text" id="bf" list="breakfast" />
+              <datalist id="breakfast">
+                <option>fruit</option>
+                <option>oatmeal packets</option>
+                <option>campfire pancake breakfast</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip breakfast</option>
+              </datalist>
+              <h5>morning snack</h5>
+              <input type="text" id="ms" list="morning-snack" />
+              <datalist id="morning-snack">
+                <option>trailmix</option>
+                <option>granola bars</option>
+                <option>cheese and jerky</option>
+                <option>no plan</option>
+                <option>skip snack</option>
+              </datalist>
+              <h5>lunch</h5>
+              <input type="text" id="lunch" list="lunchData" />
+              <datalist id="lunchData">
+                <option>dried soup/ramen</option>
+                <option>peanutbutter sandwiches</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip lunch</option>
+              </datalist>
+              <h5>afternoon-snack</h5>
+              <input type="text" id="as" list="afternoon-snack" />
+              <datalist id="afternoon-snack">
+                <option>trailmix</option>
+                <option>granola bars</option>
+                <option>cheese and jerky</option>
+                <option>no plan</option>
+                <option>skip snack</option>
+              </datalist>
+              <h5>dinner</h5>
+              <input type="text" id="din" list="dinner" />
+              <datalist id="dinner">
+                <option>cheese, bread, and jerky</option>
+                <option>dried soup/ramen</option>
+                <option>campfire fish and potatoes</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip dinner</option>
+              </datalist>
+              <button type="submit" class="btn btn-success" id="foodPlanning">Submit food planning</button>
+            </form>
+          </div>
         </div>
       </div>
 
-      <form id="foodPlanning">
-        <h1>Food Planning</h1>
-        <h2><span id="foodDay1"></span></h2>
-        <h5>breakfast</h5>
-        <input type="text" id="bf" list="breakfast" />
-        <datalist id="breakfast">
-          <option>fruit</option>
-          <option>oatmeal packets</option>
-          <option>campfire pancake breakfast</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip breakfast</option>
-        </datalist>
-        <h5>morning snack</h5>
-        <input type="text" id="ms" list="morning-snack" />
-        <datalist id="morning-snack">
-          <option>trailmix</option>
-          <option>granola bars</option>
-          <option>cheese and jerky</option>
-          <option>no plan</option>
-          <option>skip snack</option>
-        </datalist>
-        <h5>lunch</h5>
-        <input type="text" id="lunch" list="lunchData" />
-        <datalist id="lunchData">
-          <option>dried soup/ramen</option>
-          <option>peanutbutter sandwiches</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip lunch</option>
-        </datalist>
-        <h5>afternoon-snack</h5>
-        <input type="text" id="as" list="afternoon-snack" />
-        <datalist id="afternoon-snack">
-          <option>trailmix</option>
-          <option>granola bars</option>
-          <option>cheese and jerky</option>
-          <option>no plan</option>
-          <option>skip snack</option>
-        </datalist>
-        <h5>dinner</h5>
-        <input type="text" id="din" list="dinner" />
-        <datalist id="dinner">
-          <option>cheese, bread, and jerky</option>
-          <option>dried soup/ramen</option>
-          <option>campfire fish and potatoes</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip dinner</option>
-        </datalist>
-        <button type="submit" class="btn btn-success" id="foodPlanning">Submit food planning</button>
-      </form>
     </div> <!--end of food div -->
 
   <div class="safety-gear" id="anchorTripGear">

@@ -17,8 +17,7 @@ export class Trip {
 }
 
 export class FoodSchedule {
-  constructor (foodDay1) {
-    this.foodDay1 = foodDay1;
+  constructor () {
   }
 }
 
