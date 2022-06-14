@@ -67,6 +67,11 @@
   display: none;
 }
 
+/* test */
+#tripItinerary .card {
+  background-color: lightblue;
+}
+
 .foodPage {
   display: none;
 }
