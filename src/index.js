@@ -2,27 +2,36 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-//import 'mapbox-gl/dist/mapbox-gl.js';
+import '@mapbox/mapbox-gl-geocoder';
 import {Trip, FoodSchedule} from './js/trip';
 import Person from './js/person';
-// import TemplateClassName from './js/template.js';
+import { Coordinates, Map} from './js/map.js';
+//import GeoCoder from './js/service.js';
 
-//check in where this should go
-const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-mapboxgl.accessToken = `${process.env.MAPBOX_API_KEY}`;
-const map = new mapboxgl.Map({
-  container: 'mapView',
-  style: 'mapbox://styles/mapbox/outdoors-v11',
-  center: [-122.669, 45.429],
-  zoom: 9
+
+const formElement = document.getElementById('create-route');
+formElement.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let address = $('#route-start').val();
+
+  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${process.env.MAPBOX_API_KEY}`)
+    .then(response => response.json())
+    .then((data) => {
+      const coordinates = {
+        lng: data.features[0].geometry.coordinates[0],
+        lat: data.features[0].geometry.coordinates[1]
+      };
+      console.log(coordinates);
+      Coordinates(coordinates);
+        
+    });
 });
 
 $(document).ready(function() {
   let currentUser;
   let currentTrip;
-
-  // $('#mapView').append(map);
-  // map.resize();
+  let map = Map();
 
   document.getElementById('mapView').append(map);
   map.resize();
@@ -62,12 +71,25 @@ $(document).ready(function() {
     currentTrip.food = tripFood;
   });
 
-  $('#create-route').on("click", function(event){
-    event.preventDefault();
-    let routeBegin = $('#route-start').val();
-    let routeEnd = $('#route-end').val();
-    console.log(routeBegin);
-    console.log(routeEnd);
-  });
+  // $('#create-route').on("click", function(event){
+  //   event.preventDefault();
+  //   let address = $('#route-start').val();
+  //   //let routeEnd = $('#route-end').val();
+  //   console.log(address);
+  //   // fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${process.env.MAPBOX_API_KEY}`)
+  //   //   .then(response => response.json())
+  //   //   .then((data) => {
+  //   //     const coordinates = {
+  //   //       lng: data.features[0].geometry.coordinates[0],
+  //   //       lat: data.features[0].geometry.coordinates[1]
+  //   //     };
+  //   //     console.log(coordinates);
+  //   //     //console.log(Map(coordinates));
+        
+  //   //   });
+  //   //makeGeoCoderCall(address);
+
+  //   //console.log(routeEnd);
+  // });
 
 });
