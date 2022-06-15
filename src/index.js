@@ -6,6 +6,7 @@ import {Trip, TripDates} from './js/trip';
 import Person from './js/person';
 // import TemplateClassName from './js/template.js';
 
+// functions creating trip object
 export default function dateDiff(startDate, endDate) {
   const timeDif =  Math.round((startDate-endDate)/(1000*60*60*24));
   const absTimeDif = Math.abs(timeDif);
@@ -25,6 +26,19 @@ function createTrip(startDate, endDate, tripType, tripName, tripParticipants, tr
   return currentTrip;
 }
 
+//the function below builds the itinerary on the DOM -- it will create as many "cards" as there are days where we can display the plan for that day//
+function addRows (totalRows, totalDays) {
+  let dayCount=1;
+  for (let rows=1; rows<=totalRows; rows++) {
+    $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
+    for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
+      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text'>Content of day's itinerary</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div></div>");
+      dayCount=dayCount+1;
+    }
+  }
+}
+
+//Food Page functions
 function parseDateIndex(activeId) {
   const dateIndexStr = activeId.replace("foodDate", "");
   const dateIndex = parseInt(dateIndexStr);
@@ -42,6 +56,7 @@ function populateFoodDatesList(tripObject){
   for (let j = 0; j < dates.length; j++){
     if(j === 0){
       $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start active"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
+      $('.formFoodDateTitle').html(tripObject.tripDates.datesListed[0]);
     } else {
       $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
     }
@@ -60,21 +75,11 @@ function updateFoodDatesList(tripObject, activeDateId){
   }
 }
 
-//the function below builds the itinerary on the DOM -- it will create as many "cards" as there are days where we can display the plan for that day//
-function addRows (totalRows, totalDays) {
-  let dayCount=1;
-  for (let rows=1; rows<=totalRows; rows++) {
-    $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
-    for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
-      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text'>Content of day's itinerary</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div></div>");
-      dayCount=dayCount+1;
-    }
-  }
-}
-
 function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
   let dateIndex = parseDateIndex(activeFoodDateId);
+  $('.formFoodDateTitle').html(tripObject.tripDates.datesListed[dateIndex]);
+
   if (tripObject.food[dateIndex] !== undefined) {
     let foodObject = tripObject.food[dateIndex];
     let foodObjectKeys = Object.keys(foodObject);
@@ -139,8 +144,8 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").show();
     $(".navigation-bar").show();
-    addRows(rowsNeeded, daysNeeded);
 
+    addRows(rowsNeeded, daysNeeded);
     populateFoodDatesList(currentTrip);
   });
   
