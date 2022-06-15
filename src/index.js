@@ -75,18 +75,17 @@ function updateFoodDatesList(tripObject, activeDateId){
   }
 }
 
-//the function below builds the itinerary on the DOM -- it will create as many "cards" as there are days where we can display the plan for that day//
-//it will display 3 days on each row with each row having an id of row(#of row)
-function addRows (totalRows, totalDays) {
-  let dayCount=1;
-  for (let rows=1; rows<=totalRows; rows++) {
-    $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
-    for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
-      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text' id='day" + dayCount + "'>Content of day's itinerary</p></div></div></div>");
-      dayCount=dayCount+1;
-    }
-  }
-}
+//???DUPLICATE BELOW I THINK
+// function addRows (totalRows, totalDays) {
+//   let dayCount=1;
+//   for (let rows=1; rows<=totalRows; rows++) {
+//     $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
+//     for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
+//       $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text' id='day" + dayCount + "'>Content of day's itinerary</p></div></div></div>");
+//       dayCount=dayCount+1;
+//     }
+//   }
+// }
 
 function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
