@@ -42,6 +42,7 @@ function populateFoodDatesList(tripObject){
   for (let j = 0; j < dates.length; j++){
     if(j === 0){
       $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start active"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
+      $('.formFoodDateTitle').html(tripObject.tripDates.datesListed[0]);
     } else {
       $('.list-group').append($('<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">' + dates[j] + '</h5></div><p class="mb-1"></p></a>').attr('id', "foodDate" + j));
     }
@@ -75,6 +76,7 @@ function addRows (totalRows, totalDays) {
 function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
   let dateIndex = parseDateIndex(activeFoodDateId);
+  $('.formFoodDateTitle').html(tripObject.tripDates.datesListed[dateIndex]);
   if (tripObject.food[dateIndex] !== undefined) {
     let foodObject = tripObject.food[dateIndex];
     let foodObjectKeys = Object.keys(foodObject);
