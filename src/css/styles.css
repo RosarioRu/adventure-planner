@@ -1,11 +1,15 @@
-
+body {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
 
 .landingPage {
   border: solid 2px black;
   box-sizing: border-box;
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  margin: auto;
+  margin: 50px;
   padding: 5%;
   background-image: linear-gradient(#c7e4ef, #c2d1d6);
   background-image:url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80");
@@ -19,7 +23,15 @@
   font-size: larger;
 }
 
-.landingPage h1 {
+.landingPage h1{
+  text-align: center;
+}
+
+.landingPage h5{
+  text-align: center;
+}
+
+.landingPage h6{
   text-align: center;
 }
 
