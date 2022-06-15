@@ -60,14 +60,20 @@
   margin-top: 4%;
 
 }
-/* body {
-  background-color: lightblue;
-} */
+
 .tripPage {
   display: none;
 }
 
 .foodPage {
+  display: none;
+}
+
+.safety-gear {
+  display: none;
+}
+
+.skills {
   display: none;
 }
 
