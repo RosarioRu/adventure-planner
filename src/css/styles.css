@@ -115,3 +115,8 @@
 .centered-paragraph {
   text-align: center;
 }
+
+/*for itinerary card personal gear section */
+.showGear {
+  display: none;
+}
