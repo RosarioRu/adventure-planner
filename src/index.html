@@ -4,6 +4,8 @@
 <head>
   <title>Adventure Planner</title>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 </head>
 
 <body>
@@ -158,16 +160,18 @@
             <label for="route-start">Enter your starting point</label>
             <input id="route-start" class="form-control" type="text">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="route-end">Enter your ending point</label>
             <input id="route-end" class="form-control" type="text">
-          </div>
+          </div> -->
           <!-- Possibly add inputs for map markers -->
           <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
         </form>
       </div>
       <div id="mapView">
+        <div id="instructions"></div>
       </div>
+
       <div class="mapInfo">
         <p class="estimted-time"></p>
         <p class="distance"></p>
