@@ -7,38 +7,20 @@
 
 <body>
   <div class="container">
-
-    <div class="navigation-bar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-TripDash">
-                <a href="#anchorTripItenerary">Trip Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#anchorTripFood">Food</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripGear">Gear</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripNavigation">Navigation</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripShelter">Shelter</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripSkills">Skills</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorPersonalSupplies">Personal Supplies</a>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </nav>
-    </div> <!--end of navigation div -->
+    <div class="navigationBarDiv">
+      <div class="navigation-bar">
+        <nav class="navbar navbar-light navbar-expand">
+          <form class="container-fluid justify-content-start" id="navForm">
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navItenerary">Trip Itenerary</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navFood">Food Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navRoute">Route Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navPersonalGear">Personal Gear Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navGeneralGear">General Gear Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navSkills">Skills Planning</button>
+          </form>
+        </nav>
+      </div> <!--end of navigation div -->
+    </div>
     
     <div class="landingPage">
       <h1>Welcome to Adventure Planner!</h1>
@@ -186,9 +168,6 @@
     </div>
   </div>
   <!--end of navigation div -->
-  <div class="shelter-sleeping" id="anchorTripShelter">
-  </div>
-  <!--end of shelter-sleeping div -->
   <div class="skills" id="anchorTripSkills">
   </div>
   <!--end of skills div -->
