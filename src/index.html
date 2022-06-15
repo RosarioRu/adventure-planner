@@ -7,38 +7,20 @@
 
 <body>
   <div class="container">
-
-    <div class="navigation-bar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-TripDash">
-                <a href="#anchorTripItenerary">Trip Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#anchorTripFood">Food</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripGear">Gear</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripNavigation">Navigation</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripShelter">Shelter</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripSkills">Skills</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorPersonalSupplies">Personal Supplies</a>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </nav>
-    </div> <!--end of navigation div -->
+    <div class="navigationBarDiv">
+      <div class="navigation-bar">
+        <nav class="navbar navbar-light navbar-expand">
+          <form class="container-fluid justify-content-start" id="navForm">
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navItenerary">Trip Itenerary</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navFood">Food Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navRoute">Route Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navPersonalGear">Personal Gear Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navGeneralGear">General Gear Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navSkills">Skills Planning</button>
+          </form>
+        </nav>
+      </div> <!--end of navigation div -->
+    </div>
     
     <div class="landingPage">
       <h1>Welcome to Adventure Planner!</h1>
@@ -101,7 +83,7 @@
           <div class='edit-column'>
       
             <form id="foodPlanning">
-              <h2><span id="foodDay1"></span></h2>
+              <h2 class="formFoodDateTitle"></h2>
               <h5>breakfast</h5>
               <input type="text" id="breakfastInput" list="breakfast" />
               <datalist id="breakfast">
@@ -148,7 +130,7 @@
                 <option>find a restaurant</option>
                 <option>no plan</option>
                 <option>skip dinner</option>
-              </datalist>
+              </datalist><br><br>
               <button type="submit" class="btn btn-success" id="foodPlanning">Submit</button>
             </form>
           </div>
@@ -186,9 +168,6 @@
     </div>
   </div>
   <!--end of navigation div -->
-  <div class="shelter-sleeping" id="anchorTripShelter">
-  </div>
-  <!--end of shelter-sleeping div -->
   <div class="skills" id="anchorTripSkills">
   </div>
   <!--end of skills div -->
@@ -258,6 +237,17 @@
     <div class="shelter-sleeping" id="anchorTripShelter">
     </div> <!--end of shelter-sleeping div -->
     <div class="skills" id="anchorTripSkills">
+    <h4>Skills you'll need for your backpacking trip:</h4>
+    <h5 class="centered-title">Planning Skills</h5>
+    <p class="centered-paragraph">If your trip is notnplanned out well, it will fall apart very quickly and become a very stressful experience. Make sure that you are fully prepared with all the gear required for a backpacking trip (you an revisit the "Gear" section if needed) and that you have prepared for every sitaution you could encounter on your adventure.</p>
+    <h5 class="centered-title">Navigation Skills</h5>
+    <p class="centered-paragraph">While it's important to have your phone on you in case of emergencies, you might not always have a full battery or good cell reception to use it for navigation. It's importatnt to make sure your ability to navigate is in good shape to avoid getting lost in unfamiliar territories and delaying your trip schedule.</p>
+    <h5 class="centered-title">Weather Awareness</h5>
+    <p class="centered-paragraph">It's essential to your trip that you are aware of weather conditions at all times. Doing so will help you decide when to take shelter and when to reroute in order to make the trip smoother.</p>
+    <h5 class="centered-title">Survival Skills</h5>
+    <p class="centered-paragraph">Being in the woods doesn't provide us with the same resources that our modern lives do. Therefore, posessing the necessary skills to survive in the wilderness could make or break your backpacking experience. Those skills incude, setting up your tent and shelter, building a fire, first aid, handling wild animal encounters, and many many more.</p>
+    <h5 class="centered-title">Food Planning and Preparing</h5>
+    <p class="centered-paragraph">You will need to buy food periodically throughout your trip, while making sure you don't make your backpack heavier than it needs to. Additionally, getting all the nutrients your body needs everyday will give you the most energy to keep you going. </p>
     </div> <!--end of skills div -->
     <div class="personal-supplies" id="anchorTripPersonalSupplies">
     </div> <!--end of personal-supplies div -->
