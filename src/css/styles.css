@@ -71,6 +71,29 @@
   display: none;
 }
 
+.navigation {
+  display: none;
+}
+
+.safety-gear{
+  display: none;
+}
+
+.row-food {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column-food {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  padding: 15px;
+}
+
 .centered-title {
   text-align: center;
 }

@@ -1,13 +1,13 @@
 import dateDiff from '../index.js';
 
 export class Trip {
-  constructor (tripType, tripName, tripPeople, tripDestination, tripDates, food, gear, navigation, shelter, skills, personalSupplies) {
+  constructor (tripType, tripName, tripPeople, tripDestination, tripDates, gear, navigation, shelter, skills, personalSupplies) {
     this.tripType = tripType;
     this.tripName = tripName;
     this.tripPeople = tripPeople;
     this.tripDestination = tripDestination;
     this.tripDates = tripDates;
-    this.food = food ? food : {};
+    this.food = new FoodSchedule;
     this.gear = gear;
     this.navigation = navigation;
     this.shelter = shelter;
@@ -17,8 +17,7 @@ export class Trip {
 }
 
 export class FoodSchedule {
-  constructor (foodDay1) {
-    this.foodDay1 = foodDay1;
+  constructor () {
   }
 }
 
