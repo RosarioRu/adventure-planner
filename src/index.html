@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
   <title>Adventure Planner</title>
@@ -45,20 +45,22 @@
     <!--end of navigation div -->
 
     <div class="landingPage">
-      <h1>Welcome to Adventure Planner!</h1>
+      <h1>Adventure Planner</h1>
+      <h6>Take the stress out of your next adventure!</h6>
       <form id="begin">
         <div class="form-group">
-          <label for="user">Enter your name:</label>
+          <label for="user" class="user">Enter your name to get started:</label>
           <input type="text" class="form-control" id="user">
         </div>
-        <label for="tripTypeSelect">Adventure type:</label>
-        <select class="form-control" id="tripType">
-          <option value="backpacking">backpacking</option>
-          <option value="bike">bike camping</option>
-          <option value="hike">day hike</option>
-          <option value="kayak">kayak camping</option>
-        </select>
-        <button type="submit">Hi</button>
+        <div class="row">
+          <label for="trip-type"></label>
+          <select class="form-control" id="trip-type" size="5">
+            <option>Backpacking</option>
+            <option>Bike</option>
+            <option>Kayak</option>
+          </select>
+        </div>
+        <input type="submit" class="leaveLandingPage">
       </form>
     </div> <!-- end of landing-page div -->
 
@@ -160,12 +162,7 @@
             <label for="route-start">Enter your starting point</label>
             <input id="route-start" class="form-control" type="text">
           </div>
-          <!-- <div class="form-group">
-            <label for="route-end">Enter your ending point</label>
-            <input id="route-end" class="form-control" type="text">
-          </div> -->
-          <!-- Possibly add inputs for map markers -->
-          <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
+          <<<<<<< HEAD <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
         </form>
       </div>
       <div id="mapView">
@@ -179,19 +176,171 @@
       </div>
     </div>
     <!--end of navigation div -->
-    <div class="shelter-sleeping" id="anchorTripShelter">
-    </div>
-    <!--end of shelter-sleeping div -->
-    <div class="skills" id="anchorTripSkills">
-    </div>
-    <!--end of skills div -->
-    <div class="personal-supplies" id="anchorTripPersonalSupplies">
+
+    <div class="personalSupplies" id="anchorTripPersonalSupplies">
+      <form id="personalForm">
+        <fieldset>
+          <legend>Personal Supplies</legend>
+          <p>Select items below to add to your personal gear list</p>
+          <div>
+            <input type="checkbox" id="light" name="personal" value="Headlamp and spare batteries">
+            <label for="light">Headlamp and spare batteries</label>
+          </div>
+          <div>
+            <input type="checkbox" id="map" name="personal" value="Map and Compass">
+            <label for="map">Map and Compass (everyone should have their own!)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="notebook" name="personal" value="Small notebook and pen">
+            <label for="notebook">Small notebook and pen</label>
+          </div>
+          <div>
+            <input type="checkbox" id="eating" name="personal" value="Cup and spoon">
+            <label for="eating">Cup and spoon</label>
+          </div>
+          <div>
+            <input type="checkbox" id="toothbrush" name="personal" value="Toothbrush, toothpaste, floss">
+            <label for="toothbrush">Toothbrush, toothpaste, floss</label>
+          </div>
+          <div>
+            <input type="checkbox" id="hat" name="personal" value="Baseball cap and/or Sunglasses">
+            <label for="hat">Baseball cap and/or Sunglasses</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sunscreen" name="personal" value="Sunscreen and lipbalm">
+            <label for="sunscreen">Waterproof sunscreen and SPF lipbalm</label>
+          </div>
+          <div>
+            <input type="checkbox" id="washcloth" name="personal" value="Washcloth">
+            <label for="washcloth">Washcloth</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Insect repellent">
+            <label for="">Insect repellent</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Hand sanitizer">
+            <label for="">Hand sanitizer (small bottle)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Trash bags">
+            <label for="">Heavy duty trash bags</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Zip-loc bags">
+            <label for="">Zip-loc bags for miscellaneous use</label>
+          </div>
+          <div>
+            <input type="checkbox" id="medications" name="personal" value="Medications">
+            <label for="medications">Personal medications</label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn">Enter items</button>
+      </form>
     </div>
     <!--end of personal-supplies div -->
 
-    <div class="itinerary" id="tripItenerary">
+    <div class="safety-gear" id="anchorTripGear">
+      <form id="addItems">
+        <h4>Choose which of the following you'd like to include in your gear</h4>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Backpack">
+            Backpack
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Hiking Shoes">
+            Hiking Shoes
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Hiking Boots">
+            Hiking Boots
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Tent">
+            Tent
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Sleeping Bag">
+            Sleeping Bag
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="First Aid Kit">
+            First Aid Kit
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Travel Stove Top">
+            Travel Stove Top
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Phone w/ Charger">
+            Phone with Charger
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success">Add my Items</button>
+      </form>
+      <p>If you need help getting started on your shopping, <a href="https://www.rei.com/">REI</a> is always a good
+        start. We also reccomend <a href="https://www.backcountrygear.com/">BackCountry Gear.</a></p>
     </div>
-    <!--end itinerary div -->
+    <!--end of safety-gear div -->
+
+
+    <div class="skills" id="anchorTripSkills">
+      <h4>Skills you'll need for your backpacking trip:</h4>
+      <h5 class="centered-title">Planning Skills</h5>
+      <p class="centered-paragraph">If your trip is notnplanned out well, it will fall apart very quickly and become a
+        very stressful experience. Make sure that you are fully prepared with all the gear required for a backpacking
+        trip (you an revisit the "Gear" section if needed) and that you have prepared for every sitaution you could
+        encounter on your adventure.</p>
+      <h5 class="centered-title">Navigation Skills</h5>
+      <p class="centered-paragraph">While it's important to have your phone on you in case of emergencies, you might not
+        always have a full battery or good cell reception to use it for navigation. It's importatnt to make sure your
+        ability to navigate is in good shape to avoid getting lost in unfamiliar territories and delaying your trip
+        schedule.</p>
+      <h5 class="centered-title">Weather Awareness</h5>
+      <p class="centered-paragraph">It's essential to your trip that you are aware of weather conditions at all times.
+        Doing so will help you decide when to take shelter and when to reroute in order to make the trip smoother.</p>
+      <h5 class="centered-title">Survival Skills</h5>
+      <p class="centered-paragraph">Being in the woods doesn't provide us with the same resources that our modern lives
+        do. Therefore, posessing the necessary skills to survive in the wilderness could make or break your backpacking
+        experience. Those skills incude, setting up your tent and shelter, building a fire, first aid, handling wild
+        animal encounters, and many many more.</p>
+      <h5 class="centered-title">Food Planning and Preparing</h5>
+      <p class="centered-paragraph">You will need to buy food periodically throughout your trip, while making sure you
+        don't make your backpack heavier than it needs to. Additionally, getting all the nutrients your body needs
+        everyday will give you the most energy to keep you going. </p>
+    </div>
+    <!--end of skills div -->
+
+
+    <div class="itinerary" id="tripItinerary">
+      <!-- EXAMPLE BELOW OF DIV THAT WILL BE CREATED BY JQUERY -->
+      <!-- <div class="row" id="row1">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Day 1</h5>
+              <p class="card-text">Day One Itinerary blah blah</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div> -->
+    </div>
+    <!--End of itinerary div -->
 
   </div>
   <!--end of container div -->
