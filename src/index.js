@@ -77,6 +77,7 @@ function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
   let dateIndex = parseDateIndex(activeFoodDateId);
   $('.formFoodDateTitle').html(tripObject.tripDates.datesListed[dateIndex]);
+  
   if (tripObject.food[dateIndex] !== undefined) {
     let foodObject = tripObject.food[dateIndex];
     let foodObjectKeys = Object.keys(foodObject);
