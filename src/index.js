@@ -67,7 +67,7 @@ function addRows (totalRows, totalDays) {
   for (let rows=1; rows<=totalRows; rows++) {
     $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
     for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
-      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text' id='day" + dayCount + "'>Content of day's itinerary</p><a href='#' class='btn btn-primary'>Go somewhere</a></div></div></div>");
+      $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text' id='day" + dayCount + "'>Content of day's itinerary</p></div></div></div>");
       dayCount=dayCount+1;
     }
   }
@@ -174,6 +174,7 @@ $(document).ready(function() {
     currentTrip.gear = gearArray;
   });
 
+  //Personal Supplies are selected and when that form is entered, it modifies the currentTrip and also displays the list of supplies on the itinerary day cards.
   $("#personalForm").submit(function(event) {
     event.preventDefault();
     let personalGearList = [];
@@ -183,10 +184,13 @@ $(document).ready(function() {
       personalGearList.push(itemsSelected);
     });
     currentTrip.personalSupplies = personalGearList;
-    
-    $("#tripItinerary .card p").append("<button type='button' class='btn btn-link' id='displayPersonalGearList'>Personal Gear List</button>");
-    // $("#displayPersonalGearList").on("click", ;
-
+    //below is where itinerary card is modified with list of personal items
+    $("#personalForm").hide();
+    $("#tripItinerary .card p").append("<div class='dailyPersonal'><p class='remove'><button type='button' class='btn btn-link'>Personal Gear List</button></p><p class='showGear'>" + personalGearList + "</p>'</div>");
+    $(".dailyPersonal").click(function() {
+      $(".remove").toggle();
+      $(".showGear").toggle();  
+    });
   });
 
 });
