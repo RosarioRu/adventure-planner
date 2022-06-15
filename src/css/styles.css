@@ -79,6 +79,10 @@
   display: none;
 }
 
+.navigation-bar{
+  display: none;
+}
+
 .row-food {
   display: flex;
   flex-direction: row;

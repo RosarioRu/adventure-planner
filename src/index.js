@@ -129,7 +129,6 @@ $(document).ready(function() {
     currentUser["trips"].push(currentTrip);
     console.log(currentTrip);
     $(".tripPage").hide();
-    $(".foodPage").show();
     
     //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
     arrayOfTripDays = currentTrip.tripDates.datesListed;
@@ -139,6 +138,7 @@ $(document).ready(function() {
     $(".landingPage").hide();
     $(".navigation").hide();
     $(".itinerary").show();
+    $(".navigation-bar").show();
     addRows(rowsNeeded, daysNeeded);
 
     populateFoodDatesList(currentTrip);
@@ -163,6 +163,7 @@ $(document).ready(function() {
   $('.list-group').on("click", function(){
     fillFoodPlannerForm(currentTrip);
   });
+
   $('#addItems').submit(function (event) {
     event.preventDefault();
     let gearArray =[];
@@ -171,5 +172,71 @@ $(document).ready(function() {
       gearArray.push(gearItems);
     });
     currentTrip.gear = gearArray;
+  });
+
+  $('#navItenerary').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").show();
+    $(".foodPage").hide();
+    $(".personal-supplies").hide();
+    $(".skills").hide();
+    $(".safety-gear").hide();
+  });
+
+  $('#navFood').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").hide();
+    $(".foodPage").show();
+    $(".personal-supplies").hide();
+    $(".skills").hide();
+    $(".safety-gear").hide();
+  });
+
+  $('#navRoute').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").show();
+    $(".itinerary").hide();
+    $(".foodPage").hide();
+    $(".personal-supplies").hide();
+    $(".skills").hide();
+    $(".safety-gear").hide();
+  });
+
+  $('#navPersonalGear').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").hide();
+    $(".foodPage").hide();
+    $(".personal-supplies").show();
+    $(".skills").hide();
+    $(".safety-gear").hide();
+  });
+
+  $('#navGeneralGear').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").hide();
+    $(".foodPage").hide();
+    $(".personal-supplies").hide();
+    $(".skills").hide();
+    $(".safety-gear").show();
+  });
+
+  $('#navSkills').on("click", function(){
+    $(".tripPage").hide();
+    $(".landingPage").hide();
+    $(".navigation").hide();
+    $(".itinerary").hide();
+    $(".foodPage").hide();
+    $(".personal-supplies").hide();
+    $(".skills").show();
+    $(".safety-gear").hide();
   });
 });
