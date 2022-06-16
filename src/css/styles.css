@@ -96,29 +96,6 @@ body {
   display: none;
 }
 
-.mapboxgl-canvas {
-  position: relative;
-  width: 980px;
-  height: 500px; 
-}
-
-#instructions {
-  position: absolute;
-  margin: 20px;
-  width: 25%;
-  z-index: 1;
-  top: 0;
-  bottom: 20%;
-  padding: 20px;
-  background-color: #fff;
-  overflow-y: scroll;
-  font-family: sans-serif;
-}
-
-.safety-gear {
-  display: none;
-}
-
 .skills {
   display: none;
 }
@@ -169,4 +146,32 @@ body {
 
 .personalSupplies {
   display: none;
+}
+
+#titleOfTrip {
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.itinerary {
+  display: none;
+}
+
+.mapboxgl-canvas {
+  position: relative;
+  width: 980px;
+  height: 500px; 
+}
+
+#instructions {
+  position: absolute;
+  margin: 20px;
+  width: 25%;
+  z-index: 1;
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: scroll;
+  font-family: sans-serif;
 }
