@@ -2,9 +2,11 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
+import '@mapbox/mapbox-gl-geocoder';
 import {Trip, TripDates} from './js/trip';
 import Person from './js/person';
-// import TemplateClassName from './js/template.js';
+import { Coordinates, Map} from './js/map.js';
+//import GeoCoder from './js/service.js';
 
 // functions creating trip object
 export default function dateDiff(startDate, endDate) {
@@ -12,7 +14,6 @@ export default function dateDiff(startDate, endDate) {
   const absTimeDif = Math.abs(timeDif);
   return absTimeDif;
 }
-
 function createTripDates(startDate, endDate){
   let tripDates = new TripDates(startDate, endDate);
   tripDates.calcDateDiff();
@@ -114,12 +115,34 @@ function fillFoodPlannerForm(tripObject){
   }
 }
 
-/*DOCUMENT READY JQUERY UI STARTS HERE */
+
+const formElement = document.getElementById('create-route');
+formElement.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let address = $('#route-start').val();
+
+  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${process.env.MAPBOX_API_KEY}`)
+    .then(response => response.json())
+    .then((data) => {
+      const coordinates = {
+        lng: data.features[0].geometry.coordinates[0],
+        lat: data.features[0].geometry.coordinates[1]
+      };
+      console.log(coordinates);
+      Coordinates(coordinates);
+        
+    });
+});
+
 $(document).ready(function() {
   let currentUser;
   let currentTrip;
   let arrayOfTripDays;
-  
+  let map = Map();
+
+  document.getElementById('mapView').append(map);
+  map.resize();
 
   /*LANDING PAGE SUBMIT BUTTON*/
   $('#begin').submit(function (event) {
@@ -132,6 +155,7 @@ $(document).ready(function() {
     $(".landingPage").hide();
     $("#tripLeader").html("Trip Leader: " + user);
   });
+
 
   /*TRIP CREATE SUBMIT BUTTON*/
   $('#tripCreate').on("click", function(event) {
@@ -150,7 +174,7 @@ $(document).ready(function() {
     $("#titleOfTrip").html(tripName + " Itinerary");
     $("#destination").html("Destination: " + tripDestination);
     $("#participants").html("Group: " + tripParticipants);
-    
+  
     //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
     arrayOfTripDays = currentTrip.tripDates.datesListed;
     const daysNeeded = arrayOfTripDays.length;
@@ -164,7 +188,7 @@ $(document).ready(function() {
     addRows(rowsNeeded, daysNeeded);
     populateFoodDatesList(currentTrip);
   });
-  
+
   /*FOOD PLANNING SUBMIT BUTTON */
   $('#foodPlanning').on("submit", function(event) {
     event.preventDefault();

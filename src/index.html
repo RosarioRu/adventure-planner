@@ -3,6 +3,9 @@
 
 <head>
   <title>Adventure Planner</title>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 </head>
 
 <body>
@@ -14,14 +17,17 @@
             <button class="btn btn-sm btn-outline-secondary" type="button" id="navItenerary">Trip Itenerary</button>
             <button class="btn btn-sm btn-outline-secondary" type="button" id="navFood">Food Planning</button>
             <button class="btn btn-sm btn-outline-secondary" type="button" id="navRoute">Route Planning</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button" id="navPersonalGear">Personal Gear Planning</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button" id="navGeneralGear">General Gear Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navPersonalGear">Personal Gear
+              Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navGeneralGear">General Gear
+              Planning</button>
             <button class="btn btn-sm btn-outline-secondary" type="button" id="navSkills">Skills Planning</button>
           </form>
         </nav>
-      </div> <!--end of navigation div -->
+      </div>
+      <!--end of navigation div -->
     </div>
-    
+
     <div class="landingPage">
       <h1>Adventure Planner</h1>
       <h6>Take the stress out of your next adventure!</h6>
@@ -38,12 +44,12 @@
             <option>Kayak</option>
           </select>
         </div>
-        <input type="submit" class="leaveLandingPage">   
-      </form> 
+        <input type="submit" class="leaveLandingPage">
+      </form>
     </div> <!-- end of landing-page div -->
-    
+
     <div class="tripPage">
-    <h1>Create a Trip</h1>
+      <h1>Create a Trip</h1>
       <form id="createTripForm">
         <div class="form-group">
           <label for="tripName">Name your trip:</label>
@@ -67,11 +73,12 @@
         </div>
         <button class="btn btn-success" id="tripCreate">Create trip!</button>
       </form>
-    </div> <!--end of tripPage div -->
+    </div>
+    <!--end of tripPage div -->
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="foodPage" id="anchorTripFood">
-  
+
       <h1>Food Planning</h1>
       <div class='row-food'>
         <div class='column-food'>
@@ -82,7 +89,7 @@
         </div>
         <div class='column-food'>
           <div class='edit-column'>
-      
+
             <form id="foodPlanning">
               <h2 class="formFoodDateTitle"></h2>
               <h5>breakfast</h5>
@@ -138,7 +145,8 @@
         </div>
       </div>
 
-    </div> <!--end of food div -->
+    </div>
+    <!--end of food div -->
 
     <div class="navigation" id="anchorTripNavigation">
       <div class="setRoute">
@@ -149,22 +157,20 @@
             <label for="route-start">Enter your starting point</label>
             <input id="route-start" class="form-control" type="text">
           </div>
-          <div class="form-group">
-            <label for="route-start">Enter your ending point</label>
-            <input id="route-start" class="form-control" type="text">
-          </div>
-          <!-- Possibly add inputs for map markers -->
           <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
         </form>
       </div>
-      <div class="mapView">
-        <div class="mapInfo">
-          <p class="estimted-time"></p>
-          <p class="distance"></p>
-          <p class="elevation"></p>
-        </div>
+      <div id="mapView">
+        <div id="instructions"></div>
       </div>
-    </div> <!--end of navigation div -->
+
+      <div class="mapInfo">
+        <p class="estimted-time"></p>
+        <p class="distance"></p>
+        <p class="elevation"></p>
+      </div>
+    </div>
+    <!--end of navigation div -->
 
     <div class="personalSupplies" id="anchorTripPersonalSupplies">
       <h1>Personal Supplies Planning</h1>
@@ -227,7 +233,8 @@
         </fieldset>
         <button type="submit" class="btn">Enter items</button>
       </form>
-    </div> <!--end of personal-supplies div -->
+    </div>
+    <!--end of personal-supplies div -->
 
     <div class="safety-gear" id="anchorTripGear">
       <h1>Gneral Gear Planning</h1>
@@ -272,7 +279,7 @@
         <div class="checkbox">
           <label>
             <input type="checkbox" name="gearItem" value="Travel Stove Top">
-            Travel Stove Top 
+            Travel Stove Top
           </label>
         </div>
         <div class="checkbox">
@@ -283,32 +290,47 @@
         </div>
         <button type="submit" class="btn btn-success">Add my Items</button>
       </form>
-      <p>If you need help getting started on your shopping, <a href="https://www.rei.com/">REI</a> is always a good start. We also reccomend <a href="https://www.backcountrygear.com/">BackCountry Gear.</a></p>
-    </div> <!--end of safety-gear div -->
+      <p>If you need help getting started on your shopping, <a href="https://www.rei.com/">REI</a> is always a good
+        start. We also reccomend <a href="https://www.backcountrygear.com/">BackCountry Gear.</a></p>
+    </div>
+    <!--end of safety-gear div -->
 
-  
+
     <div class="skills" id="anchorTripSkills">
-    <h1>Skills Planning</h1>
-    <h4>Skills you'll need for your backpacking trip:</h4>
-    <h5 class="centered-title">Planning Skills</h5>
-    <p class="centered-paragraph">If your trip is notnplanned out well, it will fall apart very quickly and become a very stressful experience. Make sure that you are fully prepared with all the gear required for a backpacking trip (you an revisit the "Gear" section if needed) and that you have prepared for every sitaution you could encounter on your adventure.</p>
-    <h5 class="centered-title">Navigation Skills</h5>
-    <p class="centered-paragraph">While it's important to have your phone on you in case of emergencies, you might not always have a full battery or good cell reception to use it for navigation. It's importatnt to make sure your ability to navigate is in good shape to avoid getting lost in unfamiliar territories and delaying your trip schedule.</p>
-    <h5 class="centered-title">Weather Awareness</h5>
-    <p class="centered-paragraph">It's essential to your trip that you are aware of weather conditions at all times. Doing so will help you decide when to take shelter and when to reroute in order to make the trip smoother.</p>
-    <h5 class="centered-title">Survival Skills</h5>
-    <p class="centered-paragraph">Being in the woods doesn't provide us with the same resources that our modern lives do. Therefore, posessing the necessary skills to survive in the wilderness could make or break your backpacking experience. Those skills incude, setting up your tent and shelter, building a fire, first aid, handling wild animal encounters, and many many more.</p>
-    <h5 class="centered-title">Food Planning and Preparing</h5>
-    <p class="centered-paragraph">You will need to buy food periodically throughout your trip, while making sure you don't make your backpack heavier than it needs to. Additionally, getting all the nutrients your body needs everyday will give you the most energy to keep you going. </p>
-    </div> <!--end of skills div -->
-    
+      <h1>Skills Planning</h1>
+      <h4>Skills you'll need for your backpacking trip:</h4>
+      <h5 class="centered-title">Planning Skills</h5>
+      <p class="centered-paragraph">If your trip is notnplanned out well, it will fall apart very quickly and become a
+        very stressful experience. Make sure that you are fully prepared with all the gear required for a backpacking
+        trip (you an revisit the "Gear" section if needed) and that you have prepared for every sitaution you could
+        encounter on your adventure.</p>
+      <h5 class="centered-title">Navigation Skills</h5>
+      <p class="centered-paragraph">While it's important to have your phone on you in case of emergencies, you might not
+        always have a full battery or good cell reception to use it for navigation. It's importatnt to make sure your
+        ability to navigate is in good shape to avoid getting lost in unfamiliar territories and delaying your trip
+        schedule.</p>
+      <h5 class="centered-title">Weather Awareness</h5>
+      <p class="centered-paragraph">It's essential to your trip that you are aware of weather conditions at all times.
+        Doing so will help you decide when to take shelter and when to reroute in order to make the trip smoother.</p>
+      <h5 class="centered-title">Survival Skills</h5>
+      <p class="centered-paragraph">Being in the woods doesn't provide us with the same resources that our modern lives
+        do. Therefore, posessing the necessary skills to survive in the wilderness could make or break your backpacking
+        experience. Those skills incude, setting up your tent and shelter, building a fire, first aid, handling wild
+        animal encounters, and many many more.</p>
+      <h5 class="centered-title">Food Planning and Preparing</h5>
+      <p class="centered-paragraph">You will need to buy food periodically throughout your trip, while making sure you
+        don't make your backpack heavier than it needs to. Additionally, getting all the nutrients your body needs
+        everyday will give you the most energy to keep you going. </p>
+    </div>
+    <!--end of skills div -->
+
     <div class="itinerary" id="tripItinerary">
       <div id="titleOfTrip"></div>
       <div id="tripLeader"></div>
       <div id="destination"></div>
       <div id="participants"></div>
 
-      
+
       <!-- EXAMPLE BELOW OF DIV THAT WILL BE CREATED BY JQUERY -->
       <!-- <div class="row" id="row1">
         <div class="col-lg-4">
@@ -320,11 +342,11 @@
             </div>
           </div>
         </div> -->
-    </div> <!--End of itinerary div -->
+    </div>
+    <!--End of itinerary div -->
 
-  </div><!--end of container div -->
+  </div>
+  <!--end of container div -->
 </body>
 
 </html>
-
-
