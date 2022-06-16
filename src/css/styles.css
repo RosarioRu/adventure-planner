@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 50px;
+  background-color: ##94a59f;
 }
 
 .landingPage {
@@ -81,10 +82,6 @@ body {
   display: none;
 }
 
-.safety-gear {
-  display: none;
-}
-
 .skills {
   display: none;
 }
@@ -98,6 +95,10 @@ body {
 }
 
 .navigation-bar{
+  display: none;
+}
+
+.itinerary{
   display: none;
 }
 
