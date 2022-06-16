@@ -216,7 +216,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").show();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -227,7 +227,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").show();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -238,7 +238,7 @@ $(document).ready(function() {
     $(".navigation").show();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -249,7 +249,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").show();
+    $(".personalSupplies").show();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -260,7 +260,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").show();
   });
@@ -271,7 +271,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").show();
     $(".safety-gear").hide();
   });
