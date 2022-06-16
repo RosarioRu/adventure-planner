@@ -130,6 +130,7 @@ $(document).ready(function() {
     // window.location.href='tripForm.html';
     $(".tripPage").show();
     $(".landingPage").hide();
+    $("#tripLeader").html("Trip Leader: " + user);
   });
 
   /*TRIP CREATE SUBMIT BUTTON*/
@@ -146,6 +147,9 @@ $(document).ready(function() {
     currentUser["trips"].push(currentTrip);
     console.log(currentTrip);
     $(".tripPage").hide();
+    $("#titleOfTrip").html(tripName + " Itinerary");
+    $("#destination").html("Destination: " + tripDestination);
+    $("#participants").html("Group: " + tripParticipants);
     
     //clears other divs and displays itinerary div, then calls addRows() to show itinerary on page
     arrayOfTripDays = currentTrip.tripDates.datesListed;
@@ -216,7 +220,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").show();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -227,7 +231,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").show();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -238,7 +242,7 @@ $(document).ready(function() {
     $(".navigation").show();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -249,7 +253,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").show();
+    $(".personalSupplies").show();
     $(".skills").hide();
     $(".safety-gear").hide();
   });
@@ -260,7 +264,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").hide();
     $(".safety-gear").show();
   });
@@ -271,7 +275,7 @@ $(document).ready(function() {
     $(".navigation").hide();
     $(".itinerary").hide();
     $(".foodPage").hide();
-    $(".personal-supplies").hide();
+    $(".personalSupplies").hide();
     $(".skills").show();
     $(".safety-gear").hide();
   });
