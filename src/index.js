@@ -35,8 +35,8 @@ formElement.addEventListener('submit', (event) => {
 });
 
 $(document).ready(function() {
-  let currentUser;
-  let currentTrip;
+  // let currentUser;
+  // let currentTrip;
   let map = Map();
 
   document.getElementById('mapView').append(map);
@@ -301,6 +301,71 @@ $(document).ready(function() {
       $(".itinerary").hide();
       $(".foodPage").hide();
       $(".personal-supplies").hide();
+      $(".skills").show();
+      $(".safety-gear").hide();
+    });
+    $('#navItenerary').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").hide();
+      $(".itinerary").show();
+      $(".foodPage").hide();
+      $(".personalSupplies").hide();
+      $(".skills").hide();
+      $(".safety-gear").hide();
+    });
+
+    $('#navFood').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").hide();
+      $(".itinerary").hide();
+      $(".foodPage").show();
+      $(".personalSupplies").hide();
+      $(".skills").hide();
+      $(".safety-gear").hide();
+    });
+
+    $('#navRoute').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").show();
+      $(".itinerary").hide();
+      $(".foodPage").hide();
+      $(".personalSupplies").hide();
+      $(".skills").hide();
+      $(".safety-gear").hide();
+    });
+
+    $('#navPersonalGear').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").hide();
+      $(".itinerary").hide();
+      $(".foodPage").hide();
+      $(".personalSupplies").show();
+      $(".skills").hide();
+      $(".safety-gear").hide();
+    });
+
+    $('#navGeneralGear').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").hide();
+      $(".itinerary").hide();
+      $(".foodPage").hide();
+      $(".personalSupplies").hide();
+      $(".skills").hide();
+      $(".safety-gear").show();
+    });
+
+    $('#navSkills').on("click", function(){
+      $(".tripPage").hide();
+      $(".landingPage").hide();
+      $(".navigation").hide();
+      $(".itinerary").hide();
+      $(".foodPage").hide();
+      $(".personalSupplies").hide();
       $(".skills").show();
       $(".safety-gear").hide();
     });

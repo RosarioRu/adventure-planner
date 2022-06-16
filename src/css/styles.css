@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 50px;
+  background-color: #94a59f;
 }
 
 .landingPage {
@@ -134,6 +135,10 @@ body {
   display: none;
 }
 
+.itinerary{
+  display: none;
+}
+
 .row-food {
   display: flex;
   flex-direction: row;
@@ -159,5 +164,9 @@ body {
 
 /*for itinerary card personal gear section */
 .showGear {
+  display: none;
+}
+
+.personalSupplies {
   display: none;
 }

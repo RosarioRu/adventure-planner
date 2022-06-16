@@ -10,39 +10,23 @@
 
 <body>
   <div class="container">
-
-    <div class="navigation-bar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-TripDash">
-                <a href="#anchorTripItenerary">Trip Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#anchorTripFood">Food</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripGear">Gear</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripNavigation">Navigation</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripShelter">Shelter</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorTripSkills">Skills</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="#anchorPersonalSupplies">Personal Supplies</a>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </nav>
+    <div class="navigationBarDiv">
+      <div class="navigation-bar">
+        <nav class="navbar navbar-light navbar-expand">
+          <form class="container-fluid justify-content-start" id="navForm">
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navItenerary">Trip Itenerary</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navFood">Food Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navRoute">Route Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navPersonalGear">Personal Gear
+              Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navGeneralGear">General Gear
+              Planning</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="navSkills">Skills Planning</button>
+          </form>
+        </nav>
+      </div>
+      <!--end of navigation div -->
     </div>
-    <!--end of navigation div -->
 
     <div class="landingPage">
       <h1>Adventure Planner</h1>
@@ -94,75 +78,86 @@
 
     <!-- we'll need divs for the different categories to plan: -->
     <div class="foodPage" id="anchorTripFood">
-      <form id="foodPlanning">
-        <h1>Food Planning</h1>
-        <h2><span id="foodDay1"></span></h2>
-        <h5>breakfast</h5>
-        <input type="text" id="bf" list="breakfast" />
-        <datalist id="breakfast">
-          <option>fruit</option>
-          <option>oatmeal packets</option>
-          <option>campfire pancake breakfast</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip breakfast</option>
-        </datalist>
-        <h5>morning snack</h5>
-        <input type="text" id="ms" list="morning-snack" />
-        <datalist id="morning-snack">
-          <option>trailmix</option>
-          <option>granola bars</option>
-          <option>cheese and jerky</option>
-          <option>no plan</option>
-          <option>skip snack</option>
-        </datalist>
-        <h5>lunch</h5>
-        <input type="text" id="lunch" list="lunchData" />
-        <datalist id="lunchData">
-          <option>dried soup/ramen</option>
-          <option>peanutbutter sandwiches</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip lunch</option>
-        </datalist>
-        <h5>afternoon-snack</h5>
-        <input type="text" id="as" list="afternoon-snack" />
-        <datalist id="afternoon-snack">
-          <option>trailmix</option>
-          <option>granola bars</option>
-          <option>cheese and jerky</option>
-          <option>no plan</option>
-          <option>skip snack</option>
-        </datalist>
-        <h5>dinner</h5>
-        <input type="text" id="din" list="dinner" />
-        <datalist id="dinner">
-          <option>cheese, bread, and jerky</option>
-          <option>dried soup/ramen</option>
-          <option>campfire fish and potatoes</option>
-          <option>find a restaurant</option>
-          <option>no plan</option>
-          <option>skip dinner</option>
-        </datalist>
-        <button type="submit" class="btn btn-success" id="foodPlanning">Submit food planning</button>
-      </form>
+
+      <h1>Food Planning</h1>
+      <div class='row-food'>
+        <div class='column-food'>
+          <div class='display-column'>
+            <div class="list-group">
+            </div>
+          </div>
+        </div>
+        <div class='column-food'>
+          <div class='edit-column'>
+
+            <form id="foodPlanning">
+              <h2 class="formFoodDateTitle"></h2>
+              <h5>breakfast</h5>
+              <input type="text" id="breakfastInput" list="breakfast" />
+              <datalist id="breakfast">
+                <option>fruit</option>
+                <option>oatmeal packets</option>
+                <option>campfire pancake breakfast</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip breakfast</option>
+              </datalist>
+              <h5>morning snack</h5>
+              <input type="text" id="morningSnackInput" list="morning-snack" />
+              <datalist id="morning-snack">
+                <option>trailmix</option>
+                <option>granola bars</option>
+                <option>cheese and jerky</option>
+                <option>no plan</option>
+                <option>skip snack</option>
+              </datalist>
+              <h5>lunch</h5>
+              <input type="text" id="lunchInput" list="lunchData" />
+              <datalist id="lunchData">
+                <option>dried soup/ramen</option>
+                <option>peanutbutter sandwiches</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip lunch</option>
+              </datalist>
+              <h5>afternoon-snack</h5>
+              <input type="text" id="afternoonSnackInput" list="afternoon-snack" />
+              <datalist id="afternoon-snack">
+                <option>trailmix</option>
+                <option>granola bars</option>
+                <option>cheese and jerky</option>
+                <option>no plan</option>
+                <option>skip snack</option>
+              </datalist>
+              <h5>dinner</h5>
+              <input type="text" id="dinnerInput" list="dinner" />
+              <datalist id="dinner">
+                <option>cheese, bread, and jerky</option>
+                <option>dried soup/ramen</option>
+                <option>campfire fish and potatoes</option>
+                <option>find a restaurant</option>
+                <option>no plan</option>
+                <option>skip dinner</option>
+              </datalist><br><br>
+              <button type="submit" class="btn btn-success" id="foodPlanning">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
     </div>
     <!--end of food div -->
 
-    <div class="safety-gear" id="anchorTripGear">
-    </div>
-    <!--end of safety-gear div -->
     <div class="navigation" id="anchorTripNavigation">
       <div class="setRoute">
-        <h2>Create a Route</h2>
+        <h1>Create a Route</h1>
         <form id="create-route">
           <!-- can be driving, biking, hiking routes etc. -->
           <div class="form-group">
             <label for="route-start">Enter your starting point</label>
             <input id="route-start" class="form-control" type="text">
           </div>
-          <<<<<<< HEAD <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
+          <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
         </form>
       </div>
       <div id="mapView">
@@ -178,6 +173,7 @@
     <!--end of navigation div -->
 
     <div class="personalSupplies" id="anchorTripPersonalSupplies">
+      <h1>Personal Supplies Planning</h1>
       <form id="personalForm">
         <fieldset>
           <legend>Personal Supplies</legend>
@@ -241,6 +237,7 @@
     <!--end of personal-supplies div -->
 
     <div class="safety-gear" id="anchorTripGear">
+      <h1>Gneral Gear Planning</h1>
       <form id="addItems">
         <h4>Choose which of the following you'd like to include in your gear</h4>
         <div class="checkbox">
@@ -300,6 +297,7 @@
 
 
     <div class="skills" id="anchorTripSkills">
+      <h1>Skills Planning</h1>
       <h4>Skills you'll need for your backpacking trip:</h4>
       <h5 class="centered-title">Planning Skills</h5>
       <p class="centered-paragraph">If your trip is notnplanned out well, it will fall apart very quickly and become a
@@ -326,8 +324,13 @@
     </div>
     <!--end of skills div -->
 
-
     <div class="itinerary" id="tripItinerary">
+      <div id="titleOfTrip"></div>
+      <div id="tripLeader"></div>
+      <div id="destination"></div>
+      <div id="participants"></div>
+
+
       <!-- EXAMPLE BELOW OF DIV THAT WILL BE CREATED BY JQUERY -->
       <!-- <div class="row" id="row1">
         <div class="col-lg-4">
