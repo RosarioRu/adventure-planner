@@ -146,3 +146,12 @@ body {
 .personalSupplies {
   display: none;
 }
+
+#titleOfTrip {
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.itinerary {
+  display: none;
+}
