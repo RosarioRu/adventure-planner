@@ -78,6 +78,20 @@ body {
   display: none;
 }
 
+/* test below on cards for itineray*/
+#tripItinerary .card {
+  background-color: rgb(50, 157, 193);
+}
+
+#day1 {
+  background-color: white;
+}
+
+#day5 {
+  background-color: green;
+}
+
+
 .foodPage {
   display: none;
 }
@@ -123,4 +137,13 @@ body {
 
 .centered-paragraph {
   text-align: center;
+}
+
+/*for itinerary card personal gear section */
+.showGear {
+  display: none;
+}
+
+.personalSupplies {
+  display: none;
 }

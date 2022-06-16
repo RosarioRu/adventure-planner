@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
   <title>Adventure Planner</title>
@@ -140,95 +140,151 @@
 
     </div> <!--end of food div -->
 
-  <div class="safety-gear" id="anchorTripGear">
-  </div>
-  <!--end of safety-gear div -->
-  <div class="navigation" id="anchorTripNavigation">
-    <div class="setRoute">
-      <h1>Create a Route</h1>
-      <form id="create-route">
-        <!-- can be driving, biking, hiking routes etc. -->
-        <div class="form-group">
-          <label for="route-start">Enter your starting point</label>
-          <input id="route-start" class="form-control" type="text">
+    <div class="navigation" id="anchorTripNavigation">
+      <div class="setRoute">
+        <h2>Create a Route</h2>
+        <form id="create-route">
+          <!-- can be driving, biking, hiking routes etc. -->
+          <div class="form-group">
+            <label for="route-start">Enter your starting point</label>
+            <input id="route-start" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="route-start">Enter your ending point</label>
+            <input id="route-start" class="form-control" type="text">
+          </div>
+          <!-- Possibly add inputs for map markers -->
+          <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
+        </form>
+      </div>
+      <div class="mapView">
+        <div class="mapInfo">
+          <p class="estimted-time"></p>
+          <p class="distance"></p>
+          <p class="elevation"></p>
         </div>
-        <div class="form-group">
-          <label for="route-start">Enter your ending point</label>
-          <input id="route-start" class="form-control" type="text">
-        </div>
-        <!-- Possibly add inputs for map markers -->
-        <button type="submit" class="btn btn-success" id="routeCreate">Create your route</button>
+      </div>
+    </div> <!--end of navigation div -->
+
+    <div class="personalSupplies" id="anchorTripPersonalSupplies">
+      <form id="personalForm">
+        <fieldset>
+          <legend>Personal Supplies</legend>
+          <p>Select items below to add to your personal gear list</p>
+          <div>
+            <input type="checkbox" id="light" name="personal" value="Headlamp and spare batteries">
+            <label for="light">Headlamp and spare batteries</label>
+          </div>
+          <div>
+            <input type="checkbox" id="map" name="personal" value="Map and Compass">
+            <label for="map">Map and Compass (everyone should have their own!)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="notebook" name="personal" value="Small notebook and pen">
+            <label for="notebook">Small notebook and pen</label>
+          </div>
+          <div>
+            <input type="checkbox" id="eating" name="personal" value="Cup and spoon">
+            <label for="eating">Cup and spoon</label>
+          </div>
+          <div>
+            <input type="checkbox" id="toothbrush" name="personal" value="Toothbrush, toothpaste, floss">
+            <label for="toothbrush">Toothbrush, toothpaste, floss</label>
+          </div>
+          <div>
+            <input type="checkbox" id="hat" name="personal" value="Baseball cap and/or Sunglasses">
+            <label for="hat">Baseball cap and/or Sunglasses</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sunscreen" name="personal" value="Sunscreen and lipbalm">
+            <label for="sunscreen">Waterproof sunscreen and SPF lipbalm</label>
+          </div>
+          <div>
+            <input type="checkbox" id="washcloth" name="personal" value="Washcloth">
+            <label for="washcloth">Washcloth</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Insect repellent">
+            <label for="">Insect repellent</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Hand sanitizer">
+            <label for="">Hand sanitizer (small bottle)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Trash bags">
+            <label for="">Heavy duty trash bags</label>
+          </div>
+          <div>
+            <input type="checkbox" id="" name="personal" value="Zip-loc bags">
+            <label for="">Zip-loc bags for miscellaneous use</label>
+          </div>
+          <div>
+            <input type="checkbox" id="medications" name="personal" value="Medications">
+            <label for="medications">Personal medications</label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn">Enter items</button>
       </form>
-    </div>
-    <div class="mapView">
-      <div class="mapInfo">
-        <p class="estimted-time"></p>
-        <p class="distance"></p>
-        <p class="elevation"></p>
-      </div>
-    </div>
-  </div>
-  <!--end of navigation div -->
+    </div> <!--end of personal-supplies div -->
 
-  <div class="safety-gear" id="anchorTripGear">
-    <h1>General Gear Planning</h1>
-    <form id="addItems">
-      <h4>Choose which of the following you'd like to include in your gear</h4>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Backpack">
-          Backpack
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Hiking Shoes">
-          Hiking Shoes
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Hiking Boots">
-          Hiking Boots
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Tent">
-          Tent
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Sleeping Bag">
-          Sleeping Bag
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="First Aid Kit">
-          First Aid Kit
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Travel Stove Top">
-          Travel Stove Top 
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="gearItem" value="Phone w/ Charger">
-          Phone with Charger
-        </label>
-      </div>
-      <button type="submit" class="btn btn-success">Add my Items</button>
-    </form>
-
+    <div class="safety-gear" id="anchorTripGear">
+      <form id="addItems">
+        <h4>Choose which of the following you'd like to include in your gear</h4>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Backpack">
+            Backpack
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Hiking Shoes">
+            Hiking Shoes
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Hiking Boots">
+            Hiking Boots
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Tent">
+            Tent
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Sleeping Bag">
+            Sleeping Bag
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="First Aid Kit">
+            First Aid Kit
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Travel Stove Top">
+            Travel Stove Top 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="gearItem" value="Phone w/ Charger">
+            Phone with Charger
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success">Add my Items</button>
+      </form>
       <p>If you need help getting started on your shopping, <a href="https://www.rei.com/">REI</a> is always a good start. We also reccomend <a href="https://www.backcountrygear.com/">BackCountry Gear.</a></p>
+    </div> <!--end of safety-gear div -->
 
-  </div> <!--end of safety-gear div -->
-
+  
     <div class="skills" id="anchorTripSkills">
     <h1>Skills Planning</h1>
     <h4>Skills you'll need for your backpacking trip:</h4>
@@ -255,29 +311,8 @@
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Day 2</h5>
-              <p class="card-text">blah blah</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Day 3</h5>
-              <p class="card-text">blah blah</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-    </div>
-  <!--end itinerary div -->
+        </div> -->
+    </div> <!--End of itinerary div -->
 
   </div><!--end of container div -->
 </body>

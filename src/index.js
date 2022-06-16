@@ -75,6 +75,18 @@ function updateFoodDatesList(tripObject, activeDateId){
   }
 }
 
+//???DUPLICATE BELOW I THINK
+// function addRows (totalRows, totalDays) {
+//   let dayCount=1;
+//   for (let rows=1; rows<=totalRows; rows++) {
+//     $("#tripItinerary").append("<div class='row' id='row" + rows + "'>" + "</div>");
+//     for (let days=1; days<=3 && dayCount<=totalDays ; days++) {
+//       $("#row" + rows + "").append("<div class='col-lg-4'><div class='card'><div class='card-body'><h5 class='card-title'>Day " + dayCount + "</h5><p class='card-text' id='day" + dayCount + "'>Content of day's itinerary</p></div></div></div>");
+//       dayCount=dayCount+1;
+//     }
+//   }
+// }
+
 function fillFoodPlannerForm(tripObject){
   let activeFoodDateId = $('.list-group').find('a.active').attr("id");
   let dateIndex = parseDateIndex(activeFoodDateId);
@@ -177,6 +189,25 @@ $(document).ready(function() {
       gearArray.push(gearItems);
     });
     currentTrip.gear = gearArray;
+  });
+
+  //Personal Supplies are selected and when that form is entered, it modifies the currentTrip and also displays the list of supplies on the itinerary day cards.
+  $("#personalForm").submit(function(event) {
+    event.preventDefault();
+    let personalGearList = [];
+    $("input[type='checkbox'][name=personal]:checked").each(function() {
+      const itemsSelected = $(this).val();
+      console.log(itemsSelected);
+      personalGearList.push(itemsSelected);
+    });
+    currentTrip.personalSupplies = personalGearList;
+    //below is where itinerary card is modified with list of personal items
+    $("#personalForm").hide();
+    $("#tripItinerary .card p").append("<div class='dailyPersonal'><p class='remove'><button type='button' class='btn btn-link'>Personal Gear List</button></p><p class='showGear'>" + personalGearList + "</p>'</div>");
+    $(".dailyPersonal").click(function() {
+      $(".remove").toggle();
+      $(".showGear").toggle();  
+    });
   });
 
   $('#navItenerary').on("click", function(){
